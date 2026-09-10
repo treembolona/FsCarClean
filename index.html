@@ -644,7 +644,13 @@ function reservar(){
   const modalidad = document.getElementById('modalidad').value;
   const dia = document.getElementById('dia').value;
   const hora = document.getElementById('hora').value;
-  const texto = `Hola! Quiero reservar un turno.%0AServicio: ${encodeURIComponent(servicio)}%0AModalidad: ${encodeURIComponent(modalidad)}%0AD%C3%ADa: ${dia}%0AHorario: ${hora} hs`;
+
+  const servicioMatch = servicio.match(/\$([\d.]+)/);
+  let total = servicioMatch ? parseInt(servicioMatch[1].replace(/\./g, ''), 10) : 0;
+  if (modalidad.includes('domicilio')) total += 5000;
+  const totalStr = '$' + total.toLocaleString('es-AR');
+
+  const texto = `Hola! Quiero reservar un turno.%0AServicio: ${encodeURIComponent(servicio)}%0AModalidad: ${encodeURIComponent(modalidad)}%0AD%C3%ADa: ${dia}%0AHorario: ${hora} hs%0A*Total: ${totalStr}*`;
   window.open(`https://wa.me/5492975012375?text=${texto}`, '_blank');
 }
 </script>
