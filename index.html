@@ -1,252 +1,701 @@
 <!DOCTYPE html>
 <html lang="es-AR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Fs Car Clean | Lavadero de autos en Rada Tilly</title>
-<link rel="icon" type="image/png" href="img/favicon.png">
-<link rel="apple-touch-icon" href="img/logo-grande.png">
-<meta name="theme-color" content="#0b0d0e">
-<meta name="description" content="Lavado básico desde $20.000 y detallado desde $35.000 en Rada Tilly. Tomas Turkovic 1544. Todos los días de 9 a 18 hs. Pedí turno por WhatsApp.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#121416;--bg2:#1c2024;--soft:#1c2024;--ink:#eef0f2;--mute:#a3acb4;--blue:#1e6bff;--wa:#1e6bff;--on:#fff;--r:8px}
-*{box-sizing:border-box;margin:0}
-html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{font:400 17px/1.55 Inter,system-ui,sans-serif;color:var(--ink);background:var(--bg);padding-bottom:env(safe-area-inset-bottom)}
-h1,h2,h3{font-family:"Barlow Condensed",Impact,sans-serif;line-height:1.02;font-weight:700}
-h2{font-size:clamp(32px,6vw,48px);margin-bottom:12px}
-a{color:inherit}
-.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-section{padding:64px 0}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;padding:0 24px;border-radius:var(--r);font:600 17px Inter,sans-serif;text-decoration:none;border:2px solid transparent;cursor:pointer}
-.btn-wa{background:var(--wa);color:var(--on)}
-.btn-line{border-color:#fff;color:#fff}
-.btn-dark{border-color:#5a646c;color:var(--ink)}
-.btn:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
-/* barra */
-.bar{position:sticky;top:0;z-index:10;background:#0b0d0e;border-bottom:1px solid #2a3036;color:#fff;padding-top:env(safe-area-inset-top)}
-.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{display:flex;align-items:center;gap:10px;font:700 26px "Barlow Condensed",sans-serif;text-decoration:none;letter-spacing:.3px}
-.logo img{border-radius:50%;display:block}
-.logo b{color:var(--blue)}
-.bar .btn{min-height:42px;padding:0 16px;font-size:15px}
-/* hero */
-.hero{background:var(--bg);color:#fff;padding:0}
-.hero .wrap{display:grid;gap:28px;padding-top:44px;padding-bottom:0}
-.hero h1{font-size:clamp(44px,11vw,84px);max-width:11ch}
-.hero p.lead{font-size:19px;color:#cfd5da;max-width:34ch}
-.hero .meta{color:#9aa4ac;font-size:15px}
-.hero .meta a{color:#fff}
-.cta{display:grid;gap:12px;max-width:420px}
-.hero img{width:100%;height:340px;object-fit:cover;object-position:center 40%;display:block;margin-top:8px;border-radius:var(--r) var(--r) 0 0}
-@media(min-width:820px){
- .hero .wrap{grid-template-columns:1.1fr .9fr;align-items:end;padding-top:72px}
- .hero img{height:520px;margin:0}
- .cta{grid-template-columns:1fr 1fr;max-width:none}
-}
-/* servicios */
-.sub{color:var(--mute);max-width:56ch;margin-bottom:32px}
-.plans{display:grid;gap:16px}
-.plan{border:2px solid #3a424a;border-radius:var(--r);padding:24px;display:grid;gap:10px;align-content:start}
-.plan.main{background:var(--bg2);border-color:var(--blue)}
-.plan .price{font:700 40px "Barlow Condensed",sans-serif}
-.plan .price small{font:500 15px Inter,sans-serif;opacity:.7}
-.plan .time{font-weight:600;color:var(--blue)}
-.plan.main .time{color:#8fb4ff}
-.plan ul{padding-left:20px;display:grid;gap:4px}
-.tag{justify-self:start;background:var(--blue);color:var(--on);font-size:13px;font-weight:600;padding:2px 10px;border-radius:99px}
-.extra{margin-top:16px;display:grid;gap:12px}
-.extra div{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;justify-content:space-between;background:var(--soft);padding:16px 20px;border-radius:var(--r)}
-.extra strong{font-size:18px}
-.extra span{color:var(--mute);font-size:15px;flex:1 1 220px}
-.extra a{font-weight:600;color:var(--blue)}
-.flota{margin-top:28px;border-left:5px solid var(--blue);padding:4px 0 4px 20px;display:grid;gap:10px;justify-items:start}
-.flota h3{font-size:30px}
-@media(min-width:820px){.plans{grid-template-columns:1fr 1fr}.plan{padding:32px}}
-/* trabajos */
-.dark{background:var(--bg2);color:#fff}
-.dark .sub{color:#aeb7be}
-.work{display:grid;gap:12px;grid-template-columns:1fr 1fr}
-.work img,.work video{width:100%;height:100%;object-fit:cover;border-radius:var(--r);display:block;background:var(--bg2)}
-.work .a{grid-column:1/-1}
-.work .a img{max-height:420px;object-position:center 55%}
-@media(min-width:820px){.work{grid-template-columns:1.2fr 1fr 1fr}.work .a{grid-column:auto}.work .a img,.work video,.work img{max-height:none;height:480px}}
-.work figcaption{font-size:14px;color:#aeb7be;margin-top:6px}
-/* proceso */
-.steps{display:grid;gap:28px;counter-reset:s}
-.steps li{list-style:none;display:grid;grid-template-columns:56px 1fr;gap:4px 16px;counter-increment:s}
-.steps li::before{content:counter(s);font:700 56px/1 "Barlow Condensed",sans-serif;color:var(--blue);grid-row:span 2}
-.steps h3{font-size:28px}
-.steps p{color:var(--mute);max-width:52ch}
-@media(min-width:820px){.steps{grid-template-columns:repeat(3,1fr);gap:40px}}
-/* ubicación */
-.soft{background:var(--soft)}
-.where{display:grid;gap:28px}
-.where dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:16px 0 24px}
-.where dt{font-weight:600}
-.where .acts{display:grid;gap:10px;max-width:380px}
-.map{border:0;width:100%;height:340px;border-radius:var(--r);background:#2a3036}
-@media(min-width:820px){.where{grid-template-columns:1fr 1.2fr;align-items:start}.map{height:440px}}
-/* faq */
-details{border-bottom:1px solid #2e353b}
-summary{cursor:pointer;list-style:none;font:600 18px Inter,sans-serif;padding:20px 32px 20px 0;position:relative}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";position:absolute;right:4px;top:14px;font-size:28px;color:var(--blue)}
-details[open] summary::after{content:"–"}
-details p{padding:0 0 20px;color:var(--mute);max-width:62ch}
-.faq{max-width:760px}
-/* cierre */
-.end{background:var(--blue);color:var(--on);text-align:left}
-.end h2{font-size:clamp(36px,8vw,60px)}
-.end .btn-wa{margin-top:12px;background:#121416;color:#fff}
-footer{background:#0b0d0e;color:#aeb7be;font-size:15px;padding:32px 0}
-footer .wrap{text-align:center}
-footer a{color:#fff}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Fs Car Clean | Lavadero de autos en Rada Tilly</title>
+  <meta name="description" content="Lavado básico desde $20.000 y detallado desde $35.000 en Rada Tilly. Tomas Turkovic 1544. Todos los días de 9 a 18 hs. Pedí turno por WhatsApp.">
+  <meta name="theme-color" content="#0a0b0c">
+  <link rel="icon" type="image/png" href="img/favicon.png">
+  <link rel="apple-touch-icon" href="img/logo-grande.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <script>document.documentElement.classList.add("js");</script>
+
+  <style>
+    :root {
+      --bg: #0a0b0c;
+      --bg-2: #121417;
+      --line: #24282d;
+      --ink: #f2f3f4;
+      --mute: #8d959d;
+      --blue: #1e6bff;
+      --blue-light: #7fa8ff;
+      --radius: 18px;
+      --ease: cubic-bezier(.2, .7, .2, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font: 400 17px/1.6 Manrope, system-ui, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    img, video, iframe { display: block; max-width: 100%; }
+    :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+
+    h1, h2, h3 {
+      font-family: Unbounded, sans-serif;
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -.02em;
+    }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    .label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--blue-light);
+    }
+    .mute { color: var(--mute); }
+
+    section { padding: 96px 0; }
+    section + section:not(.end) { padding-top: 0; }
+
+    .head { display: grid; gap: 16px; margin-bottom: 52px; }
+    .head h2 { font-size: clamp(34px, 6.5vw, 72px); max-width: 16ch; }
+    .head p { max-width: 52ch; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      min-height: 56px;
+      padding: 0 26px;
+      border: 1.5px solid transparent;
+      border-radius: 99px;
+      font: 700 16px Manrope, sans-serif;
+      text-decoration: none;
+      transition: transform .3s var(--ease), background .3s, border-color .3s;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn::after { content: "→"; transition: transform .3s var(--ease); }
+    .btn:hover::after { transform: translateX(4px); }
+    .btn--plain::after { content: none; }
+
+    .btn--blue { background: var(--blue); color: #fff; }
+    .btn--blue:hover { background: #3a7fff; }
+    .btn--line { border-color: rgba(255, 255, 255, .35); color: #fff; }
+    .btn--line:hover { border-color: #fff; }
+    .btn--white { background: #fff; color: var(--bg); }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 45%;
+      animation: hero-zoom 2.4s var(--ease) both;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(180deg,
+        rgba(10, 11, 12, .55) 0%,
+        rgba(10, 11, 12, .1) 30%,
+        rgba(10, 11, 12, .55) 62%,
+        var(--bg) 100%);
+    }
+    @keyframes hero-zoom { from { transform: scale(1.08); } }
+
+    .hero__top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding-top: calc(22px + env(safe-area-inset-top));
+    }
+    .hero__top .label { color: #fff; display: none; }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font: 700 18px Unbounded, sans-serif;
+      text-decoration: none;
+    }
+    .brand img { border-radius: 50%; }
+    .brand b { color: var(--blue-light); }
+
+    .hero__body { padding-bottom: 48px; }
+    .hero h1 { font-size: clamp(44px, 10.5vw, 124px); max-width: 12ch; margin: 14px 0 22px; }
+    .hero h1 span { color: var(--blue-light); }
+    .hero__lead { font-size: 19px; color: #d9dde1; max-width: 38ch; }
+    .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .hero__address { margin-top: 22px; font-size: 15px; color: #c1c7cd; }
+    .hero__address a { color: #fff; }
+
+    @media (min-width: 720px) {
+      .hero__top .label { display: block; }
+    }
+
+    .plans { border-top: 1px solid var(--line); }
+    .plan {
+      display: grid;
+      gap: 18px;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .plan h3 { font-size: clamp(26px, 4vw, 40px); }
+    .plan__time { margin-top: 6px; font-weight: 700; color: var(--blue-light); }
+    .plan ul { list-style: none; display: grid; gap: 8px; }
+    .plan li { position: relative; padding-left: 22px; }
+    .plan li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: .7em;
+      width: 10px;
+      height: 2px;
+      background: var(--blue);
+    }
+    .plan__note { margin-top: 12px; }
+
+    .price {
+      font: 800 clamp(44px, 8vw, 84px)/1 Unbounded, sans-serif;
+      letter-spacing: -.03em;
+    }
+    .price small {
+      display: block;
+      margin-bottom: 8px;
+      font: 500 14px Manrope, sans-serif;
+      letter-spacing: 0;
+      color: var(--mute);
+    }
+
+    .badge {
+      display: inline-block;
+      margin-left: 10px;
+      padding: 5px 10px;
+      border-radius: 99px;
+      vertical-align: middle;
+      font: 700 11px Manrope, sans-serif;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      background: var(--blue);
+      color: #fff;
+    }
+
+    @media (min-width: 900px) {
+      .plan { grid-template-columns: 1.1fr .9fr 1.1fr auto; align-items: start; gap: 40px; }
+      .plan .btn { align-self: center; }
+    }
+
+    .extras { display: grid; gap: 14px; margin-top: 40px; }
+    .extra {
+      display: grid;
+      gap: 4px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--bg-2);
+      text-decoration: none;
+      transition: border-color .3s, transform .3s var(--ease);
+    }
+    .extra:hover { border-color: var(--blue); transform: translateY(-3px); }
+    .extra strong { font: 700 20px Unbounded, sans-serif; }
+    .extra__link { margin-top: 10px; font-weight: 700; color: var(--blue-light); }
+
+    .fleet {
+      display: grid;
+      gap: 14px;
+      justify-items: start;
+      margin-top: 14px;
+      padding: 36px 28px;
+      border-radius: var(--radius);
+      background: linear-gradient(120deg, #0f2a66, var(--blue));
+    }
+    .fleet h3 { font-size: clamp(24px, 4vw, 36px); max-width: 22ch; }
+    .fleet p { max-width: 54ch; color: #dbe6ff; }
+
+    @media (min-width: 820px) {
+      .extras { grid-template-columns: 1fr 1fr; }
+    }
+    @media (min-width: 900px) {
+      .fleet { grid-template-columns: 1fr auto; align-items: center; padding: 44px; }
+      .fleet .btn { grid-row: span 2; }
+    }
+
+    .gallery { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; }
+    .gallery figure {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--bg-2);
+    }
+    .gallery img, .gallery video { width: 100%; height: 300px; object-fit: cover; }
+    .gallery__main { grid-column: 1 / -1; }
+    .gallery__main img { height: 420px; object-position: center 55%; }
+    .gallery figcaption {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      padding: 6px 12px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 700;
+      background: rgba(10, 11, 12, .7);
+      backdrop-filter: blur(8px);
+    }
+
+    @media (min-width: 900px) {
+      .gallery { grid-template-columns: 1.4fr 1fr 1fr; }
+      .gallery__main { grid-column: auto; }
+      .gallery img, .gallery video, .gallery__main img { height: 540px; }
+    }
+
+    .process { display: grid; gap: 40px; }
+    .steps { list-style: none; }
+    .step {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 6px 20px;
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+    }
+    .step__n {
+      grid-row: span 2;
+      font: 800 40px/1 Unbounded, sans-serif;
+      color: var(--blue);
+    }
+    .step h3 { font-size: clamp(22px, 3vw, 28px); }
+
+    @media (min-width: 900px) {
+      .process { grid-template-columns: .9fr 1.1fr; gap: 80px; }
+      .process .head { position: sticky; top: 60px; align-self: start; margin: 0; }
+    }
+
+    .location { display: grid; gap: 32px; }
+    .location .head { margin-bottom: 28px; }
+    .info { border-top: 1px solid var(--line); }
+    .info div {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .info dt { color: var(--mute); }
+    .info dd { font-weight: 700; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .map {
+      width: 100%;
+      height: 380px;
+      border: 0;
+      border-radius: var(--radius);
+      background: var(--bg-2);
+      filter: invert(.92) hue-rotate(180deg) saturate(.6);
+    }
+
+    @media (min-width: 900px) {
+      .location { grid-template-columns: 1fr 1.2fr; align-items: center; }
+      .map { height: 500px; }
+    }
+
+    .faq { max-width: 860px; border-top: 1px solid var(--line); }
+    .faq details { border-bottom: 1px solid var(--line); }
+    .faq summary {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 24px 0;
+      font-size: 19px;
+      font-weight: 700;
+      list-style: none;
+      cursor: pointer;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after {
+      content: "";
+      flex: none;
+      width: 14px;
+      height: 14px;
+      margin-top: 6px;
+      border-right: 2px solid var(--blue-light);
+      border-bottom: 2px solid var(--blue-light);
+      transform: rotate(45deg);
+      transition: transform .3s var(--ease);
+    }
+    .faq details[open] summary::after { transform: rotate(-135deg); }
+    .faq p { max-width: 66ch; padding: 0 40px 26px 0; color: var(--mute); }
+
+    .end {
+      position: relative;
+      padding: 140px 0;
+      text-align: center;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .end__bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .35;
+    }
+    .end::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(ellipse at center, rgba(10, 11, 12, .3), var(--bg) 75%);
+    }
+    .end .label { margin-bottom: 18px; }
+    .end h2 { font-size: clamp(38px, 8vw, 96px); max-width: 14ch; margin: 0 auto 32px; }
+
+    footer {
+      padding: 28px 0 calc(28px + env(safe-area-inset-bottom));
+      border-top: 1px solid var(--line);
+      font-size: 14px;
+      color: var(--mute);
+    }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+
+    .js [data-reveal] {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .9s var(--ease), transform .9s var(--ease);
+      transition-delay: calc(var(--i, 0) * 110ms);
+    }
+    .js [data-reveal].is-visible { opacity: 1; transform: none; }
+
+    .js [data-reveal="image"] {
+      opacity: 1;
+      transform: none;
+      clip-path: inset(18% 0 0 0 round var(--radius));
+      transition: clip-path 1.2s var(--ease);
+      transition-delay: calc(var(--i, 0) * 110ms);
+    }
+    .js [data-reveal="image"] :is(img, video, iframe) {
+      transform: scale(1.15);
+      transition: transform 1.4s var(--ease);
+    }
+    .js [data-reveal="image"].is-visible { clip-path: inset(0 round var(--radius)); }
+    .js [data-reveal="image"].is-visible :is(img, video, iframe) { transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .hero__bg { animation: none; }
+      .js [data-reveal],
+      .js [data-reveal] :is(img, video, iframe) {
+        opacity: 1 !important;
+        transform: none !important;
+        clip-path: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header class="bar">
- <div class="wrap">
-  <a class="logo" href="#"><img src="img/logo.png" alt="" width="44" height="44"><span>Fs <b>Car Clean</b></span></a>
-  <a class="btn btn-wa" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado." >WhatsApp</a>
- </div>
-</header>
-
 <main>
-<section class="hero">
- <div class="wrap">
-  <div style="display:grid;gap:22px;padding-bottom:12px">
-   <p class="meta">Rada Tilly, Chubut · Todos los días de 9 a 18 hs</p>
-   <h1>Lavado de autos en Rada Tilly</h1>
-   <p class="lead">Básico desde $20.000, detallado desde $35.000. Lo lavamos a mano y te decimos cuánto tarda antes de empezar.</p>
-   <div class="cta">
-    <a class="btn btn-wa" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado.">Pedir turno por WhatsApp</a>
-    <a class="btn btn-line" href="#servicios">Ver precios</a>
-   </div>
-   <p class="meta">Tomas Turkovic 1544 · <a href="https://www.google.com/maps/dir/?api=1&destination=-45.923972,-67.574861">Cómo llegar</a></p>
-  </div>
-  <img src="img/exterior.jpg" alt="Auto blanco recién lavado frente al lavadero en Rada Tilly" width="1100" height="1467">
- </div>
-</section>
 
-<section id="servicios">
- <div class="wrap">
-  <h2>Qué hacemos y cuánto cuesta</h2>
-  <p class="sub">Son precios desde. Si tu vehículo es grande o está muy sucio, te avisamos el valor final antes de empezar.</p>
-  <div class="plans">
-   <article class="plan">
-    <h3>Lavado básico</h3>
-    <div class="price">Desde $20.000</div>
-    <div class="time">30 a 40 minutos</div>
-    <ul>
-     <li>Lavado exterior completo</li>
-     <li>Limpieza de pasarruedas y llantas</li>
-     <li>Secado a mano</li>
-    </ul>
-    <p>Para el lavado de todas las semanas.</p>
-    <a class="btn btn-dark" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado%20b%C3%A1sico.">Pedir turno</a>
-   </article>
-   <article class="plan main">
-    <span class="tag">Más completo</span>
-    <h3>Lavado detallado premium</h3>
-    <div class="price">Desde $35.000</div>
-    <div class="time">90 a 120 minutos</div>
-    <ul>
-     <li>Todo lo del lavado básico</li>
-     <li>Limpieza de interior completa</li>
-     <li>Protección de plásticos y cueros</li>
-    </ul>
-    <p>Para dejarlo como nuevo por dentro y por fuera. Conviene dejarlo en el lavadero.</p>
-    <a class="btn btn-wa" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado%20detallado.">Pedir turno</a>
-   </article>
-  </div>
-  <div class="extra">
-   <div><strong>Pulido de ópticas</strong><span>Faros opacos o amarillos que ya no iluminan bien.</span><a href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20pulido%20de%20%C3%B3pticas.">Consultar precio</a></div>
-   <div><strong>Limpieza de tapizados</strong><span>Manchas, olores y tierra en los asientos.</span><a href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20consultar%20el%20precio%20de%20limpieza%20de%20tapizados.">Consultar precio</a></div>
-  </div>
-  <div class="flota">
-   <h3>¿Tenés una empresa de traslados o varias unidades?</h3>
-   <p>Escribinos con la cantidad de vehículos y armamos un plan de lavado con turnos para tu flota.</p>
-   <a class="btn btn-dark" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20para%20lavar%20varias%20unidades.">Pedir cotización para empresas</a>
-  </div>
- </div>
-</section>
+  <section class="hero">
+    <img class="hero__bg" src="img/exterior.jpg" alt="Auto blanco recién lavado frente al lavadero en Rada Tilly" width="1100" height="1467" fetchpriority="high">
 
-<section class="dark">
- <div class="wrap">
-  <h2>Trabajos terminados</h2>
-  <p class="sub">Autos y camionetas de clientes de Rada Tilly, recién entregados.</p>
-  <div class="work">
-   <figure class="a"><img src="img/interior.jpg" alt="Interior de un Corolla con asientos de cuero y tablero limpios" loading="lazy"><figcaption>Interior después del detallado.</figcaption></figure>
-   <figure><video src="video/trabajo1.mp4" poster="img/poster1.jpg" controls muted playsinline preload="metadata"></video></figure>
-   <figure><video src="video/trabajo2.mp4" poster="img/poster2.jpg" controls muted playsinline preload="metadata"></video></figure>
-  </div>
- </div>
-</section>
+    <div class="wrap hero__top">
+      <a class="brand" href="#" data-reveal>
+        <img src="img/logo.png" alt="" width="44" height="44">
+        <span>Fs <b>Car Clean</b></span>
+      </a>
+      <span class="label" data-reveal>Rada Tilly · 9 a 18 hs</span>
+    </div>
 
-<section>
- <div class="wrap">
-  <h2>Cómo cuidamos tu auto</h2>
-  <p class="sub">Sin apuro y sin máquinas que rayen. Todo se hace a mano.</p>
-  <ol class="steps" style="padding:0">
-   <li><h3>Lavado exterior completo</h3><p>Carrocería, llantas y pasarruedas, una por una. Donde se acumula la tierra de Rada Tilly, se limpia de verdad.</p></li>
-   <li><h3>Productos de primera calidad</h3><p>Trabajamos con Toxic Shine y Vonixx, marcas pensadas para cuidar la pintura, los plásticos y el cuero.</p></li>
-   <li><h3>Secado a mano</h3><p>Secamos pieza por pieza para que no queden marcas de agua. Antes de entregar, lo revisamos con vos.</p></li>
-  </ol>
- </div>
-</section>
+    <div class="wrap hero__body">
+      <p class="label" data-reveal>Lavado a mano · Todos los días</p>
+      <h1 data-reveal>Lavado de autos en <span>Rada Tilly</span></h1>
+      <p class="hero__lead" data-reveal>Básico desde $20.000, detallado desde $35.000. Lo lavamos a mano y te decimos cuánto tarda antes de empezar.</p>
+      <div class="hero__cta" data-reveal>
+        <a class="btn btn--blue" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado.">Pedir turno por WhatsApp</a>
+        <a class="btn btn--line btn--plain" href="#servicios">Ver precios</a>
+      </div>
+      <p class="hero__address" data-reveal>
+        Tomas Turkovic 1544 · <a href="https://www.google.com/maps/dir/?api=1&destination=-45.923972,-67.574861">Cómo llegar</a>
+      </p>
+    </div>
+  </section>
 
-<section class="soft" id="donde">
- <div class="wrap where">
-  <div>
-   <h2>Dónde estamos</h2>
-   <dl>
-    <dt>Dirección</dt><dd>Tomas Turkovic 1544, Rada Tilly</dd>
-    <dt>Horario</dt><dd>Lunes a domingo, de 9 a 18 hs</dd>
-    <dt>WhatsApp</dt><dd><a href="tel:+542975012375">297 501-2375</a></dd>
-    <dt>Pagos</dt><dd>Transferencia bancaria y efectivo</dd>
-   </dl>
-   <div class="acts">
-    <a class="btn btn-wa" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado.">Pedir turno por WhatsApp</a>
-    <a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&destination=-45.923972,-67.574861">Cómo llegar</a>
-    <a class="btn btn-dark" href="tel:+542975012375">Llamar</a>
-    <a class="btn btn-dark" href="https://www.google.com/maps/place/Fs+Car+Clean/@-45.923292,-67.5722065,17z/data=!4m14!1m7!3m6!1s0xbde5adf69e41d36d:0xe82d05f3a833d6e9!2sFs+Car+Clean!8m2!3d-45.9232584!4d-67.5685158!16s%2Fg%2F11zky308c2?entry=ttu">Ver reseñas en Google</a>
-   </div>
-  </div>
-  <iframe class="map" title="Mapa de Fs Car Clean en Rada Tilly" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=-45.923972,-67.574861&hl=es&z=17&output=embed"></iframe>
- </div>
-</section>
+  <section id="servicios">
+    <div class="wrap">
+      <div class="head">
+        <p class="label" data-reveal>Servicios</p>
+        <h2 data-reveal>Qué hacemos y cuánto cuesta</h2>
+        <p class="mute" data-reveal>Son precios desde. Si tu vehículo es grande o está muy sucio, te avisamos el valor final antes de empezar.</p>
+      </div>
 
-<section>
- <div class="wrap faq">
-  <h2>Preguntas frecuentes</h2>
-  <details><summary>¿Cuánto tarda?</summary><p>El lavado básico lleva entre 30 y 40 minutos. El detallado, entre 90 y 120 minutos. Si el vehículo es grande o está muy sucio, te avisamos antes de empezar.</p></details>
-  <details><summary>¿Cuánto cuesta?</summary><p>El lavado básico sale desde $20.000 y el detallado desde $35.000. El pulido de ópticas y la limpieza de tapizados dependen del estado de cada vehículo: mandanos una foto por WhatsApp y te pasamos el precio.</p></details>
-  <details><summary>¿Cómo se pide un turno?</summary><p>Por WhatsApp al 297 501-2375. Decinos qué servicio querés y qué vehículo tenés, y te confirmamos el horario.</p></details>
-  <details><summary>¿Cómo cuidan la pintura de mi auto?</summary><p>Lavamos a mano, con productos Toxic Shine y Vonixx, y secamos a mano para evitar marcas.</p></details>
-  <details><summary>¿Dónde están y cuál es el horario?</summary><p>Tomas Turkovic 1544, Rada Tilly. Atendemos todos los días, de 9 a 18 hs.</p></details>
-  <details><summary>¿Qué formas de pago aceptan?</summary><p>Transferencia bancaria y efectivo.</p></details>
-  <details><summary>¿Trabajan con empresas o flotas?</summary><p>Sí. Escribinos por WhatsApp con la cantidad de unidades y te armamos una cotización.</p></details>
- </div>
-</section>
+      <div class="plans">
+        <article class="plan" data-reveal>
+          <div>
+            <h3>Lavado básico</h3>
+            <p class="plan__time">30 a 40 minutos</p>
+          </div>
+          <p class="price"><small>Desde</small>$<span data-count="20000">20.000</span></p>
+          <div>
+            <ul>
+              <li>Lavado exterior completo</li>
+              <li>Limpieza de pasarruedas y llantas</li>
+              <li>Secado a mano</li>
+            </ul>
+            <p class="plan__note mute">Para el lavado de todas las semanas.</p>
+          </div>
+          <a class="btn btn--line" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado%20b%C3%A1sico.">Pedir turno</a>
+        </article>
 
-<section class="end">
- <div class="wrap">
-  <h2>¿Cuándo querés traer el auto?</h2>
-  <a class="btn btn-wa" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado.">Pedir turno por WhatsApp</a>
- </div>
-</section>
+        <article class="plan" data-reveal>
+          <div>
+            <h3>Detallado premium<span class="badge">Más completo</span></h3>
+            <p class="plan__time">90 a 120 minutos</p>
+          </div>
+          <p class="price"><small>Desde</small>$<span data-count="35000">35.000</span></p>
+          <div>
+            <ul>
+              <li>Todo lo del lavado básico</li>
+              <li>Limpieza de interior completa</li>
+              <li>Protección de plásticos y cueros</li>
+            </ul>
+            <p class="plan__note mute">Para dejarlo como nuevo por dentro y por fuera. Conviene dejarlo en el lavadero.</p>
+          </div>
+          <a class="btn btn--blue" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado%20detallado.">Pedir turno</a>
+        </article>
+      </div>
+
+      <div class="extras">
+        <a class="extra" data-reveal href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20pulido%20de%20%C3%B3pticas.">
+          <strong>Pulido de ópticas</strong>
+          <span class="mute">Faros opacos o amarillos que ya no iluminan bien.</span>
+          <span class="extra__link">Consultar precio →</span>
+        </a>
+        <a class="extra" data-reveal href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20consultar%20el%20precio%20de%20limpieza%20de%20tapizados.">
+          <strong>Limpieza de tapizados</strong>
+          <span class="mute">Manchas, olores y tierra en los asientos.</span>
+          <span class="extra__link">Consultar precio →</span>
+        </a>
+      </div>
+
+      <div class="fleet" data-reveal>
+        <h3>¿Tenés una empresa de traslados o varias unidades?</h3>
+        <p>Escribinos con la cantidad de vehículos y armamos un plan de lavado con turnos para tu flota.</p>
+        <a class="btn btn--white" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20para%20lavar%20varias%20unidades.">Pedir cotización</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="label" data-reveal>Trabajos</p>
+        <h2 data-reveal>Recién entregados</h2>
+        <p class="mute" data-reveal>Autos y camionetas de clientes de Rada Tilly.</p>
+      </div>
+
+      <div class="gallery">
+        <figure class="gallery__main" data-reveal="image">
+          <img src="img/interior.jpg" alt="Interior de un Corolla con asientos de cuero y tablero limpios" loading="lazy">
+          <figcaption>Interior después del detallado</figcaption>
+        </figure>
+        <figure data-reveal="image">
+          <video src="video/trabajo1.mp4" poster="img/poster1.jpg" controls muted playsinline preload="metadata"></video>
+        </figure>
+        <figure data-reveal="image">
+          <video src="video/trabajo2.mp4" poster="img/poster2.jpg" controls muted playsinline preload="metadata"></video>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap process">
+      <div class="head">
+        <p class="label" data-reveal>Proceso</p>
+        <h2 data-reveal>Cómo cuidamos tu auto</h2>
+        <p class="mute" data-reveal>Sin apuro y sin máquinas que rayen. Todo se hace a mano.</p>
+      </div>
+
+      <ol class="steps">
+        <li class="step" data-reveal>
+          <span class="step__n" aria-hidden="true">01</span>
+          <h3>Lavado exterior completo</h3>
+          <p class="mute">Carrocería, llantas y pasarruedas, una por una. Donde se acumula la tierra de Rada Tilly, se limpia de verdad.</p>
+        </li>
+        <li class="step" data-reveal>
+          <span class="step__n" aria-hidden="true">02</span>
+          <h3>Productos de primera calidad</h3>
+          <p class="mute">Trabajamos con Toxic Shine y Vonixx, marcas pensadas para cuidar la pintura, los plásticos y el cuero.</p>
+        </li>
+        <li class="step" data-reveal>
+          <span class="step__n" aria-hidden="true">03</span>
+          <h3>Secado a mano</h3>
+          <p class="mute">Secamos pieza por pieza para que no queden marcas de agua. Antes de entregar, lo revisamos con vos.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="donde">
+    <div class="wrap location">
+      <div>
+        <div class="head">
+          <p class="label" data-reveal>Ubicación</p>
+          <h2 data-reveal>Dónde estamos</h2>
+        </div>
+
+        <dl class="info" data-reveal>
+          <div><dt>Dirección</dt><dd>Tomas Turkovic 1544, Rada Tilly</dd></div>
+          <div><dt>Horario</dt><dd>Lunes a domingo, de 9 a 18 hs</dd></div>
+          <div><dt>WhatsApp</dt><dd><a href="tel:+542975012375">297 501-2375</a></dd></div>
+          <div><dt>Pagos</dt><dd>Transferencia bancaria y efectivo</dd></div>
+        </dl>
+
+        <div class="actions" data-reveal>
+          <a class="btn btn--blue" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado.">Pedir turno</a>
+          <a class="btn btn--line btn--plain" href="https://www.google.com/maps/dir/?api=1&destination=-45.923972,-67.574861">Cómo llegar</a>
+          <a class="btn btn--line btn--plain" href="tel:+542975012375">Llamar</a>
+          <a class="btn btn--line btn--plain" href="https://www.google.com/maps/place/Fs+Car+Clean/@-45.923292,-67.5722065,17z/data=!4m14!1m7!3m6!1s0xbde5adf69e41d36d:0xe82d05f3a833d6e9!2sFs+Car+Clean!8m2!3d-45.9232584!4d-67.5685158!16s%2Fg%2F11zky308c2?entry=ttu">Reseñas en Google</a>
+        </div>
+      </div>
+
+      <div data-reveal="image">
+        <iframe class="map" title="Mapa de Fs Car Clean en Rada Tilly" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=-45.923972,-67.574861&hl=es&z=17&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="label" data-reveal>Consultas</p>
+        <h2 data-reveal>Preguntas frecuentes</h2>
+      </div>
+
+      <div class="faq">
+        <details data-reveal>
+          <summary>¿Cuánto tarda?</summary>
+          <p>El lavado básico lleva entre 30 y 40 minutos. El detallado, entre 90 y 120 minutos. Si el vehículo es grande o está muy sucio, te avisamos antes de empezar.</p>
+        </details>
+        <details data-reveal>
+          <summary>¿Cuánto cuesta?</summary>
+          <p>El lavado básico sale desde $20.000 y el detallado desde $35.000. El pulido de ópticas y la limpieza de tapizados dependen del estado de cada vehículo: mandanos una foto por WhatsApp y te pasamos el precio.</p>
+        </details>
+        <details data-reveal>
+          <summary>¿Cómo se pide un turno?</summary>
+          <p>Por WhatsApp al 297 501-2375. Decinos qué servicio querés y qué vehículo tenés, y te confirmamos el horario.</p>
+        </details>
+        <details data-reveal>
+          <summary>¿Cómo cuidan la pintura de mi auto?</summary>
+          <p>Lavamos a mano, con productos Toxic Shine y Vonixx, y secamos a mano para evitar marcas.</p>
+        </details>
+        <details data-reveal>
+          <summary>¿Dónde están y cuál es el horario?</summary>
+          <p>Tomas Turkovic 1544, Rada Tilly. Atendemos todos los días, de 9 a 18 hs.</p>
+        </details>
+        <details data-reveal>
+          <summary>¿Qué formas de pago aceptan?</summary>
+          <p>Transferencia bancaria y efectivo.</p>
+        </details>
+        <details data-reveal>
+          <summary>¿Trabajan con empresas o flotas?</summary>
+          <p>Sí. Escribinos por WhatsApp con la cantidad de unidades y te armamos una cotización.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="end">
+    <img class="end__bg" src="img/interior.jpg" alt="" loading="lazy">
+    <div class="wrap">
+      <p class="label" data-reveal>Pedí tu turno</p>
+      <h2 data-reveal>¿Cuándo querés traer el auto?</h2>
+      <div data-reveal>
+        <a class="btn btn--blue" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado.">Pedir turno por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer>
- <div class="wrap">
-  <span>© 2026 Fs Car Clean. Todos los derechos reservados.</span>
- </div>
+  <div class="wrap">
+    <span>© 2026 Fs Car Clean</span>
+    <span>Tomas Turkovic 1544 · Rada Tilly</span>
+  </div>
 </footer>
+
+<script>
+  (() => {
+    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const items = document.querySelectorAll("[data-reveal]");
+
+    const groups = new Map();
+    items.forEach((el) => {
+      const siblings = groups.get(el.parentElement) || [];
+      el.style.setProperty("--i", siblings.length);
+      siblings.push(el);
+      groups.set(el.parentElement, siblings);
+    });
+
+    const countUp = (el) => {
+      const target = Number(el.dataset.count);
+      const format = (n) => n.toLocaleString("es-AR");
+      if (reduceMotion) return;
+
+      const duration = 1400;
+      const start = performance.now();
+
+      const tick = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = format(Math.round((target * eased) / 100) * 100);
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    const show = (el) => {
+      el.classList.add("is-visible");
+      el.querySelectorAll("[data-count]").forEach(countUp);
+    };
+
+    if (!("IntersectionObserver" in window)) {
+      items.forEach(show);
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        show(entry.target);
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
+
+    items.forEach((el) => observer.observe(el));
+  })();
+</script>
+
 </body>
 </html>
