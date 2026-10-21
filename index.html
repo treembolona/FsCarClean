@@ -267,6 +267,30 @@
       .gallery img, .gallery video, .gallery__main img { height: 540px; }
     }
 
+    .clients { display: grid; gap: 14px; grid-template-columns: 1fr 1fr; }
+    .clients figure {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: var(--bg-2);
+    }
+    .clients img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+    .clients figcaption {
+      position: absolute;
+      left: 14px;
+      bottom: 14px;
+      padding: 6px 12px;
+      border-radius: 99px;
+      font-size: 13px;
+      font-weight: 700;
+      background: rgba(10, 11, 12, .7);
+      backdrop-filter: blur(8px);
+    }
+
+    @media (max-width: 560px) {
+      .clients { grid-template-columns: 1fr; }
+    }
+
     .process { display: grid; gap: 40px; }
     .steps { list-style: none; }
     .step {
@@ -382,7 +406,7 @@
       transition: opacity .9s var(--ease), transform .9s var(--ease);
       transition-delay: calc(var(--i, 0) * 110ms);
     }
-    .js [data-reveal].is-visible { opacity: 1; transform: none; }
+    .js [data-reveal].from-top { transform: translateY(-40px); }
 
     .js [data-reveal="image"] {
       opacity: 1;
@@ -395,6 +419,12 @@
       transform: scale(1.15);
       transition: transform 1.4s var(--ease);
     }
+    .js [data-reveal="image"].from-top {
+      transform: none;
+      clip-path: inset(0 0 18% 0 round var(--radius));
+    }
+
+    .js [data-reveal].is-visible { opacity: 1; transform: none; }
     .js [data-reveal="image"].is-visible { clip-path: inset(0 round var(--radius)); }
     .js [data-reveal="image"].is-visible :is(img, video, iframe) { transform: none; }
 
@@ -523,6 +553,27 @@
         </figure>
         <figure data-reveal="image">
           <video src="video/trabajo2.mp4" poster="img/poster2.jpg" controls muted playsinline preload="metadata"></video>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <p class="label" data-reveal>Clientes satisfechos</p>
+        <h2 data-reveal>Así se los llevan</h2>
+        <p class="mute" data-reveal>Una Toyota Hilux de un cliente, por dentro y por fuera, recién terminada.</p>
+      </div>
+
+      <div class="clients">
+        <figure data-reveal="image">
+          <img src="img/cliente-exterior.jpg" alt="Toyota Hilux negra mate con detalles rojos, recién lavada" width="1200" height="1600" loading="lazy">
+          <figcaption>Exterior</figcaption>
+        </figure>
+        <figure data-reveal="image">
+          <img src="img/cliente-interior.jpg" alt="Interior de la Toyota Hilux con asientos de cuero negro limpios" width="1200" height="1600" loading="lazy">
+          <figcaption>Interior</figcaption>
         </figure>
       </div>
     </div>
@@ -676,6 +727,7 @@
     };
 
     const show = (el) => {
+      if (el.classList.contains("is-visible")) return;
       el.classList.add("is-visible");
       el.querySelectorAll("[data-count]").forEach(countUp);
     };
@@ -685,11 +737,18 @@
       return;
     }
 
+    const hide = (el, aboveViewport) => {
+      el.classList.remove("is-visible");
+      el.classList.toggle("from-top", aboveViewport);
+    };
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        show(entry.target);
-        observer.unobserve(entry.target);
+        if (entry.isIntersecting) {
+          show(entry.target);
+        } else {
+          hide(entry.target, entry.boundingClientRect.top < 0);
+        }
       });
     }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
 
