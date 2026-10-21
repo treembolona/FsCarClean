@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Fs Car Clean | Lavadero de autos en Rada Tilly</title>
-  <meta name="description" content="Lavado básico desde $20.000 y detallado desde $35.000 en Rada Tilly. Tomas Turkovic 1544. Todos los días de 9 a 18 hs. Pedí turno por WhatsApp.">
+  <meta name="description" content="Lavado básico desde $20.000 y detallado desde $35.000 en Rada Tilly. Tomas Turkovic 1544. Abierto de jueves a lunes. Pedí turno por WhatsApp.">
   <meta name="theme-color" content="#0a0b0c">
   <link rel="icon" type="image/png" href="img/favicon.png">
   <link rel="apple-touch-icon" href="img/logo-grande.png">
@@ -305,6 +305,9 @@
     }
     .info dt { color: var(--mute); }
     .info dd { font-weight: 700; }
+    .hours { display: grid; grid-template-columns: auto 1fr; gap: 4px 20px; }
+    .hours span:nth-child(odd) { font-weight: 500; color: var(--mute); }
+    .hours .closed { color: var(--mute); font-weight: 500; }
     .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
     .map {
       width: 100%;
@@ -434,11 +437,10 @@
         <img src="img/logo.png" alt="" width="44" height="44">
         <span>Fs <b>Car Clean</b></span>
       </a>
-      <span class="label" data-reveal>Rada Tilly · 9 a 18 hs</span>
     </div>
 
     <div class="wrap hero__body">
-      <p class="label" data-reveal>Lavado a mano · Todos los días</p>
+      <p class="label" data-reveal>Lavado a mano · Pedí turno por WhatsApp</p>
       <h1 data-reveal>Lavado de autos en <span>Rada Tilly</span></h1>
       <p class="hero__lead" data-reveal>Básico desde $20.000, detallado desde $35.000. Lo lavamos a mano y te decimos cuánto tarda antes de empezar.</p>
       <div class="hero__cta" data-reveal>
@@ -585,7 +587,15 @@
 
         <dl class="info" data-reveal>
           <div><dt>Dirección</dt><dd>Tomas Turkovic 1544, Rada Tilly</dd></div>
-          <div><dt>Horario</dt><dd>Lunes a domingo, de 9 a 18 hs</dd></div>
+          <div><dt>Horario</dt><dd class="hours">
+            <span>Lunes</span><span>8 a 11 hs</span>
+            <span>Martes</span><span class="closed">Cerrado</span>
+            <span>Miércoles</span><span class="closed">Cerrado</span>
+            <span>Jueves</span><span>8 a 11 hs</span>
+            <span>Viernes</span><span>8 a 11 hs</span>
+            <span>Sábado</span><span>8 a 19 hs</span>
+            <span>Domingo</span><span>11 a 18 hs</span>
+          </dd></div>
           <div><dt>WhatsApp</dt><dd><a href="tel:+542975012375">297 501-2375</a></dd></div>
           <div><dt>Pagos</dt><dd>Transferencia bancaria y efectivo</dd></div>
         </dl>
@@ -630,7 +640,7 @@
         </details>
         <details data-reveal>
           <summary>¿Dónde están y cuál es el horario?</summary>
-          <p>Tomas Turkovic 1544, Rada Tilly. Atendemos todos los días, de 9 a 18 hs.</p>
+          <p>Tomas Turkovic 1544, Rada Tilly. Lunes, jueves y viernes de 8 a 11 hs, sábados de 8 a 19 hs y domingos de 11 a 18 hs. Martes y miércoles está cerrado.</p>
         </details>
         <details data-reveal>
           <summary>¿Qué formas de pago aceptan?</summary>
