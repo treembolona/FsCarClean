@@ -228,6 +228,7 @@
     .home-price { font-weight: 900; letter-spacing: -0.05em; line-height: .85; font-size: var(--head); white-space: nowrap; }
     .home h3 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; font-size: var(--lead); line-height: 1; }
     .home p { margin-top: 8px; max-width: 46ch; }
+    .home-act { display: grid; gap: 8px; }
 
     .others { margin-top: clamp(56px, 7vw, 96px); row-gap: 28px; }
     .others h3 { grid-column: 1 / span 4; font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; font-size: var(--lead); line-height: 1; }
@@ -483,9 +484,12 @@
         <p class="home-price">+$10.000</p>
         <div>
           <h3>Lavado a domicilio</h3>
-          <p>Si no podés traerlo, vamos nosotros. Se suma al precio del servicio que elijas.</p>
+          <p>Si no podés traerlo, vamos nosotros. Se suma al servicio que elijas: el básico a domicilio sale desde $30.000 y el detallado desde $45.000.</p>
         </div>
-        <a class="btn btn-white" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20un%20lavado%20a%20domicilio.">Pedir a domicilio</a>
+        <div class="home-act">
+          <a class="btn btn-white" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20un%20lavado%20b%C3%A1sico%20a%20domicilio.">Básico a domicilio</a>
+          <a class="btn btn-black" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20un%20lavado%20detallado%20a%20domicilio.">Detallado a domicilio</a>
+        </div>
       </div>
 
       <div class="grid others">
@@ -561,7 +565,7 @@
       <h2 class="head" id="faq-h" data-in>Lo que más nos preguntan</h2>
     </div>
     <div>
-      <details><summary class="wrap">¿Van a domicilio?</summary><p class="wrap">Sí. El lavado a domicilio tiene un extra de $10.000 sobre el precio del servicio. Pedilo por WhatsApp con tu dirección y te confirmamos el horario.</p></details>
+      <details><summary class="wrap">¿Van a domicilio?</summary><p class="wrap">Sí. Tiene un extra de $10.000 sobre el servicio: el básico a domicilio sale desde $30.000 y el detallado desde $45.000. Pedilo por WhatsApp diciendo cuál querés y tu dirección, y te confirmamos el horario.</p></details>
       <details><summary class="wrap">¿Cuánto tarda?</summary><p class="wrap">El básico lleva entre 30 y 40 minutos. El detallado, entre 90 y 120. Si el vehículo es grande o está muy sucio, te avisamos antes de empezar.</p></details>
       <details><summary class="wrap">¿Cuánto salen ópticas y tapizados?</summary><p class="wrap">Depende de cómo estén. Mandanos una foto por WhatsApp y te pasamos el precio.</p></details>
       <details><summary class="wrap">¿Cómo cuidan la pintura?</summary><p class="wrap">Lavamos y secamos a mano, pieza por pieza, con productos Toxic Shine y Vonixx. Antes de entregarlo lo revisamos con vos.</p></details>
