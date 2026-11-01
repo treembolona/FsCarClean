@@ -76,14 +76,6 @@
 }
 </script>
 
-<!--
-  Técnicas aplicadas (epic-design):
-  - Hero con la foto real a pantalla completa y parallax por capas (foto, sombra, texto)
-  - Escena fija "Limpieza / Pulido / Brillo": iluminación palabra por palabra + barrido de secador (clip-path wipe) sobre la foto
-  - Etiquetas de precio colgantes que se balancean con la velocidad del scroll
-  - Galería horizontal fija en escritorio; scroll lateral nativo en celular
-  - Todo el contenido se ve sin JS y con "reducir movimiento" activado
--->
 
 <style>
   :root {
@@ -367,7 +359,7 @@
 
 <main id="contenido">
 
-  <!-- HERO: 6 capas -->
+  <!-- HERO -->
   <section class="scene hero" data-scene="hero" aria-labelledby="hero-title">
     <div class="layer depth-0" data-depth="0">
       <img src="img/cliente-exterior.jpeg" alt="Toyota Hilux negra mate con detalles rojos, recién lavada en Fs Car Clean" width="1200" height="1600" fetchpriority="high">
@@ -391,7 +383,7 @@
     <p class="plate" aria-hidden="true"><b>HILUX</b>Cliente de Rada Tilly</p>
   </section>
 
-  <!-- LIMPIEZA / PULIDO / BRILLO: escena fija con barrido -->
+  <!-- LIMPIEZA / PULIDO / BRILLO -->
   <section class="scene shine" data-scene="shine" aria-labelledby="shine-title">
     <div class="wrap shine-stage">
       <div>
