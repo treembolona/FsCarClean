@@ -126,8 +126,11 @@
     .hero { padding-bottom: clamp(56px, 7vw, 96px); overflow: hidden; }
     .hero h1 { margin-top: clamp(24px, 4vw, 56px); }
     .hero h1 .line { display: block; }
-    .hero-row { margin-top: clamp(32px, 4vw, 56px); align-items: end; row-gap: 40px; }
-    .hero-copy { grid-column: 1 / span 4; padding-bottom: 8px; }
+    .hero-row { margin-top: clamp(32px, 4vw, 56px); align-items: stretch; row-gap: 40px; }
+    .hero-copy { grid-column: 1 / span 4; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; }
+    .hero-now { padding-top: 24px; border-top: 4px solid var(--blue); }
+    .hero-status { font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; line-height: 1; font-size: var(--lead); }
+    .hero-now .hero-address { margin-top: 14px; }
     .hero-copy .lead { max-width: 24ch; }
     .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
     .hero-address { margin-top: 28px; font-size: var(--small); color: var(--fog); }
@@ -362,8 +365,6 @@
     @media (min-width: 561px) and (max-width: 1000px) {
       .hero-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 40px; align-items: start; }
       .hero-copy .lead { max-width: none; }
-      .hero-cta { margin-top: 0; }
-      .hero-address { grid-column: 2; margin-top: 0; }
     }
     @media (max-width: 560px) {
       :root { --display: 10.8vw; }
@@ -408,12 +409,17 @@
 
     <div class="grid hero-row">
       <div class="hero-copy" data-in style="--i:1">
+        <div>
         <p class="lead">Básico desde $20.000 y detallado desde $35.000. Antes de empezar te decimos cuánto tarda.</p>
         <div class="hero-cta">
           <a class="btn btn-blue" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado.">Pedir turno por WhatsApp</a>
           <a class="btn btn-white" href="#precios">Ver precios</a>
         </div>
-        <p class="hero-address">Tomas Turkovic 1544, Rada Tilly. <a class="tlink" href="https://www.google.com/maps/dir/?api=1&destination=-45.923972,-67.574861">Cómo llegar</a></p>
+        </div>
+        <div class="hero-now">
+          <p class="hero-status" data-status>Lunes, jueves y viernes de 8 a 11 hs. Sábados de 8 a 19 hs. Domingos de 11 a 18 hs.</p>
+          <p class="hero-address">Tomas Turkovic 1544, Rada Tilly. <a class="tlink" href="https://www.google.com/maps/dir/?api=1&destination=-45.923972,-67.574861">Cómo llegar</a></p>
+        </div>
       </div>
 
       <div class="hero-photo">
@@ -526,7 +532,7 @@
     <div class="wrap grid">
       <div class="place-left">
         <h2 class="head" id="horarios-h" data-in>Cuándo abrimos</h2>
-        <p class="status" id="status" aria-live="polite">Turnos por WhatsApp al 297 501-2375</p>
+        <p class="status" id="status" data-status aria-live="polite">Turnos por WhatsApp al 297 501-2375</p>
         <dl class="hours" id="hours">
           <div data-day="1"><dt>Lunes</dt><dd>8 a 11 hs</dd></div>
           <div data-day="2"><dt>Martes</dt><dd class="closed">Cerrado</dd></div>
@@ -626,7 +632,7 @@
           }
         }
       }
-      if (text) status.textContent = text;
+      if (text) document.querySelectorAll("[data-status]").forEach((el) => { el.textContent = text; });
     } catch (e) { /* keeps the default line */ }
   })();
 </script>
