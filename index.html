@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Fs Car Clean | Lavadero de autos en Rada Tilly</title>
-  <meta name="description" content="Lavado básico desde $20.000 y detallado desde $35.000 en Rada Tilly. Tomas Turkovic 1544. Abierto de jueves a lunes. Pedí turno por WhatsApp.">
+  <meta name="description" content="Lavado básico desde $20.000 y detallado desde $35.000 en Rada Tilly. Tomas Turkovic 1544. Abierto de jueves a lunes. Pedí turno por WhatsApp. También vamos a domicilio.">
   <meta name="theme-color" content="#0a0b0c">
   <link rel="icon" type="image/png" href="img/favicon.png">
   <link rel="apple-touch-icon" href="img/logo-grande.png">
@@ -77,10 +77,12 @@
       text-decoration: none;
       transition: transform .3s var(--ease), background .3s, border-color .3s;
     }
-    .btn:hover { transform: translateY(-2px); }
-    .btn::after { content: "→"; transition: transform .3s var(--ease); }
-    .btn:hover::after { transform: translateX(4px); }
-    .btn--plain::after { content: none; }
+    .btn:active { transform: scale(.97); }
+    .btn { white-space: nowrap; }
+    @media (min-width: 720px) and (max-width: 1139px) {
+      .plan { grid-template-columns: 1fr 1fr; align-items: start; gap: 24px 40px; }
+      .plan .btn { justify-self: start; }
+    }
 
     .btn--blue { background: var(--blue); color: #fff; }
     .btn--blue:hover { background: #3a7fff; }
@@ -199,8 +201,8 @@
       color: #fff;
     }
 
-    @media (min-width: 900px) {
-      .plan { grid-template-columns: 1.1fr .9fr 1.1fr auto; align-items: start; gap: 40px; }
+    @media (min-width: 1140px) {
+      .plan { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr) minmax(0, 1.1fr) auto; align-items: start; gap: 40px; }
       .plan .btn { align-self: center; }
     }
 
@@ -215,9 +217,12 @@
       text-decoration: none;
       transition: border-color .3s, transform .3s var(--ease);
     }
-    .extra:hover { border-color: var(--blue); transform: translateY(-3px); }
+    .extra:hover { border-color: var(--blue); }
     .extra strong { font: 700 20px Unbounded, sans-serif; }
     .extra__link { margin-top: 10px; font-weight: 700; color: var(--blue-light); }
+    .extra--home { border-color: var(--blue); }
+    .extra__price { font: 800 clamp(28px, 4vw, 40px)/1 Unbounded, sans-serif; letter-spacing: -.02em; margin: 6px 0 2px; }
+    @media (min-width: 820px) { .extra--home { grid-column: 1 / -1; grid-template-columns: 1fr auto; align-items: center; column-gap: 32px; } .extra--home .extra__price { grid-row: 1 / span 3; grid-column: 2; margin: 0; } }
 
     .fleet {
       display: grid;
@@ -226,7 +231,7 @@
       margin-top: 14px;
       padding: 36px 28px;
       border-radius: var(--radius);
-      background: linear-gradient(120deg, #0f2a66, var(--blue));
+      background: var(--blue);
     }
     .fleet h3 { font-size: clamp(24px, 4vw, 36px); max-width: 22ch; }
     .fleet p { max-width: 54ch; color: #dbe6ff; }
@@ -262,8 +267,7 @@
       border-radius: 99px;
       font-size: 13px;
       font-weight: 700;
-      background: rgba(10, 11, 12, .7);
-      backdrop-filter: blur(8px);
+      background: var(--bg);
       pointer-events: none;
     }
 
@@ -276,8 +280,7 @@
     .steps { list-style: none; }
     .step {
       display: grid;
-      grid-template-columns: 72px 1fr;
-      gap: 6px 20px;
+      gap: 8px;
       padding: 32px 0;
       border-top: 1px solid var(--line);
     }
@@ -440,15 +443,14 @@
     </div>
 
     <div class="wrap hero__body">
-      <p class="label" data-reveal>Lavado a mano · Pedí turno por WhatsApp</p>
-      <h1 data-reveal>Lavado de autos en <span>Rada Tilly</span></h1>
+      <h1 data-reveal>Lavado de autos en Rada Tilly</h1>
       <p class="hero__lead" data-reveal>Básico desde $20.000, detallado desde $35.000. Lo lavamos a mano y te decimos cuánto tarda antes de empezar.</p>
       <div class="hero__cta" data-reveal>
         <a class="btn btn--blue" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado.">Pedir turno por WhatsApp</a>
         <a class="btn btn--line btn--plain" href="#servicios">Ver precios</a>
       </div>
       <p class="hero__address" data-reveal>
-        Tomas Turkovic 1544 · <a href="https://www.google.com/maps/dir/?api=1&destination=-45.923972,-67.574861">Cómo llegar</a>
+        Tomas Turkovic 1544, Rada Tilly. <a href="https://www.google.com/maps/dir/?api=1&destination=-45.923972,-67.574861">Cómo llegar</a>
       </p>
     </div>
   </section>
@@ -456,7 +458,6 @@
   <section id="servicios">
     <div class="wrap">
       <div class="head">
-        <p class="label" data-reveal>Servicios</p>
         <h2 data-reveal>Qué hacemos y cuánto cuesta</h2>
         <p class="mute" data-reveal>Son precios desde. Si tu vehículo es grande o está muy sucio, te avisamos el valor final antes de empezar.</p>
       </div>
@@ -481,7 +482,7 @@
 
         <article class="plan" data-reveal>
           <div>
-            <h3>Detallado premium<span class="badge">Más completo</span></h3>
+            <h3>Detallado premium</h3>
             <p class="plan__time">90 a 120 minutos</p>
           </div>
           <p class="price"><small>Desde</small>$<span data-count="35000">35.000</span></p>
@@ -491,22 +492,28 @@
               <li>Limpieza de interior completa</li>
               <li>Protección de plásticos y cueros</li>
             </ul>
-            <p class="plan__note mute">Para dejarlo como nuevo por dentro y por fuera. Conviene dejarlo en el lavadero.</p>
+            <p class="plan__note mute">El más completo: queda impecable por dentro y por fuera. Conviene dejarlo en el lavadero.</p>
           </div>
           <a class="btn btn--blue" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado%20detallado.">Pedir turno</a>
         </article>
       </div>
 
       <div class="extras">
+        <a class="extra extra--home" data-reveal href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20un%20lavado%20a%20domicilio.">
+          <strong>Lavado a domicilio</strong>
+          <span class="mute">Si no podés traerlo, vamos nosotros. Se suma al precio del servicio que elijas.</span>
+          <span class="extra__price">+$10.000</span>
+          <span class="extra__link">Pedir a domicilio</span>
+        </a>
         <a class="extra" data-reveal href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20pulido%20de%20%C3%B3pticas.">
           <strong>Pulido de ópticas</strong>
           <span class="mute">Faros opacos o amarillos que ya no iluminan bien.</span>
-          <span class="extra__link">Consultar precio →</span>
+          <span class="extra__link">Consultar precio</span>
         </a>
         <a class="extra" data-reveal href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20consultar%20el%20precio%20de%20limpieza%20de%20tapizados.">
           <strong>Limpieza de tapizados</strong>
           <span class="mute">Manchas, olores y tierra en los asientos.</span>
-          <span class="extra__link">Consultar precio →</span>
+          <span class="extra__link">Consultar precio</span>
         </a>
       </div>
 
@@ -521,7 +528,6 @@
   <section>
     <div class="wrap">
       <div class="head">
-        <p class="label" data-reveal>Clientes satisfechos</p>
         <h2 data-reveal>Recién entregados</h2>
         <p class="mute" data-reveal>Autos y camionetas de clientes de Rada Tilly, recién terminados.</p>
       </div>
@@ -529,7 +535,7 @@
       <div class="gallery">
         <figure class="gallery__wide" data-reveal="image">
           <img src="img/cliente-exterior.jpeg" alt="Toyota Hilux negra mate con detalles rojos, recién lavada" style="object-position: center 70%" loading="lazy">
-          <figcaption>Hilux · exterior</figcaption>
+          <figcaption>Hilux por fuera</figcaption>
         </figure>
         <figure class="gallery__tall" data-reveal="image">
           <video src="video/trabajo1.mp4" poster="img/poster1.jpg" controls muted playsinline preload="metadata"></video>
@@ -539,11 +545,11 @@
         </figure>
         <figure data-reveal="image">
           <img src="img/cliente-interior.jpeg" alt="Interior de la Toyota Hilux con asientos de cuero negro limpios" style="object-position: center 60%" loading="lazy">
-          <figcaption>Hilux · interior</figcaption>
+          <figcaption>Hilux por dentro</figcaption>
         </figure>
         <figure data-reveal="image">
           <img src="img/interior.jpg" alt="Interior de un Corolla con asientos de cuero y tablero limpios" style="object-position: center 55%" loading="lazy">
-          <figcaption>Corolla · interior</figcaption>
+          <figcaption>Corolla por dentro</figcaption>
         </figure>
       </div>
     </div>
@@ -552,26 +558,22 @@
   <section>
     <div class="wrap process">
       <div class="head">
-        <p class="label" data-reveal>Proceso</p>
         <h2 data-reveal>Cómo cuidamos tu auto</h2>
         <p class="mute" data-reveal>Sin apuro y sin máquinas que rayen. Todo se hace a mano.</p>
       </div>
 
       <ol class="steps">
         <li class="step" data-reveal>
-          <span class="step__n" aria-hidden="true">01</span>
-          <h3>Lavado exterior completo</h3>
-          <p class="mute">Carrocería, llantas y pasarruedas, una por una. Donde se acumula la tierra de Rada Tilly, se limpia de verdad.</p>
+          <h3>Te pasamos tiempo y precio</h3>
+          <p class="mute">Miramos el vehículo y antes de empezar te decimos cuánto tarda y cuánto sale. Si es grande o está muy sucio, también.</p>
         </li>
         <li class="step" data-reveal>
-          <span class="step__n" aria-hidden="true">02</span>
-          <h3>Productos de primera calidad</h3>
-          <p class="mute">Trabajamos con Toxic Shine y Vonixx, marcas pensadas para cuidar la pintura, los plásticos y el cuero.</p>
+          <h3>Lavado a mano</h3>
+          <p class="mute">Carrocería, llantas y pasarruedas, una por una, con Toxic Shine y Vonixx. Donde se junta la tierra de Rada Tilly le dedicamos más tiempo.</p>
         </li>
         <li class="step" data-reveal>
-          <span class="step__n" aria-hidden="true">03</span>
-          <h3>Secado a mano</h3>
-          <p class="mute">Secamos pieza por pieza para que no queden marcas de agua. Antes de entregar, lo revisamos con vos.</p>
+          <h3>Secado y revisión</h3>
+          <p class="mute">Secamos pieza por pieza para que no queden marcas de agua. Antes de entregarlo, lo revisamos con vos.</p>
         </li>
       </ol>
     </div>
@@ -581,7 +583,6 @@
     <div class="wrap location">
       <div>
         <div class="head">
-          <p class="label" data-reveal>Ubicación</p>
           <h2 data-reveal>Dónde estamos</h2>
         </div>
 
@@ -617,7 +618,6 @@
   <section>
     <div class="wrap">
       <div class="head">
-        <p class="label" data-reveal>Consultas</p>
         <h2 data-reveal>Preguntas frecuentes</h2>
       </div>
 
@@ -647,6 +647,10 @@
           <p>Transferencia bancaria y efectivo.</p>
         </details>
         <details data-reveal>
+          <summary>¿Van a domicilio?</summary>
+          <p>Sí. El lavado a domicilio tiene un extra de $10.000 sobre el precio del servicio. Pedilo por WhatsApp con tu dirección y te confirmamos el horario.</p>
+        </details>
+        <details data-reveal>
           <summary>¿Trabajan con empresas o flotas?</summary>
           <p>Sí. Escribinos por WhatsApp con la cantidad de unidades y te armamos una cotización.</p>
         </details>
@@ -657,7 +661,6 @@
   <section class="end">
     <img class="end__bg" src="img/interior.jpg" alt="" loading="lazy">
     <div class="wrap">
-      <p class="label" data-reveal>Pedí tu turno</p>
       <h2 data-reveal>¿Cuándo querés traer el auto?</h2>
       <div data-reveal>
         <a class="btn btn--blue" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado.">Pedir turno por WhatsApp</a>
@@ -670,7 +673,7 @@
 <footer>
   <div class="wrap">
     <span>© 2026 Fs Car Clean</span>
-    <span>Tomas Turkovic 1544 · Rada Tilly</span>
+    <span>Tomas Turkovic 1544, Rada Tilly</span>
   </div>
 </footer>
 
@@ -707,7 +710,6 @@
     const show = (el) => {
       if (el.classList.contains("is-visible")) return;
       el.classList.add("is-visible");
-      el.querySelectorAll("[data-count]").forEach(countUp);
     };
 
     if (!("IntersectionObserver" in window)) {
@@ -724,8 +726,7 @@
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           show(entry.target);
-        } else {
-          hide(entry.target, entry.boundingClientRect.top < 0);
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
