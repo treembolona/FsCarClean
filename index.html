@@ -82,6 +82,7 @@
     @media (min-width: 720px) and (max-width: 1139px) {
       .plan { grid-template-columns: 1fr 1fr; align-items: start; gap: 24px 40px; }
       .plan .btn { justify-self: start; }
+      .plan .price { font-size: clamp(40px, 5.6vw, 60px); }
     }
 
     .btn--blue { background: var(--blue); color: #fff; }
@@ -179,6 +180,7 @@
     .price {
       font: 800 clamp(44px, 8vw, 84px)/1 Unbounded, sans-serif;
       letter-spacing: -.03em;
+      white-space: nowrap;
     }
     .price small {
       display: block;
@@ -202,7 +204,8 @@
     }
 
     @media (min-width: 1140px) {
-      .plan { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr) minmax(0, 1.1fr) auto; align-items: start; gap: 40px; }
+      .plan { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.1fr) auto; align-items: start; gap: 40px; }
+      .plan .price { font-size: clamp(44px, 4.4vw, 68px); }
       .plan .btn { align-self: center; }
     }
 
