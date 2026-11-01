@@ -4,741 +4,631 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Fs Car Clean | Lavadero de autos en Rada Tilly</title>
-  <meta name="description" content="Lavado básico desde $20.000 y detallado desde $35.000 en Rada Tilly. Tomas Turkovic 1544. Abierto de jueves a lunes. Pedí turno por WhatsApp. También vamos a domicilio.">
-  <meta name="theme-color" content="#0a0b0c">
+  <meta name="description" content="Lavado a mano en Rada Tilly. Básico desde $20.000, detallado desde $35.000 y servicio a domicilio. Tomas Turkovic 1544. Turnos por WhatsApp.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Fs Car Clean | Lavado a mano en Rada Tilly">
+  <meta property="og:description" content="Básico desde $20.000, detallado desde $35.000. Turnos por WhatsApp al 297 501-2375.">
+  <meta property="og:image" content="img/exterior.jpg">
   <link rel="icon" type="image/png" href="img/favicon.png">
   <link rel="apple-touch-icon" href="img/logo-grande.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&display=swap" rel="stylesheet">
 
   <script>document.documentElement.classList.add("js");</script>
 
   <style>
     :root {
-      --bg: #0a0b0c;
-      --bg-2: #121417;
-      --line: #24282d;
-      --ink: #f2f3f4;
-      --mute: #8d959d;
-      --blue: #1e6bff;
-      --blue-light: #7fa8ff;
-      --radius: 18px;
-      --ease: cubic-bezier(.2, .7, .2, 1);
+      --black: #000;
+      --panel: #15171a;
+      --chrome: #c4c9d0;
+      --silver: #e8eaed;
+      --white: #fff;
+      --steel: #565d66;
+      --fog: #a7adb5;
+      --blue: #1f6bff;
+      --blue-deep: #0d4fd6;
+
+      --small: clamp(0.8125rem, 0.79rem + 0.1vw, 0.875rem);
+      --body: clamp(1.0625rem, 1rem + 0.25vw, 1.1875rem);
+      --lead: clamp(1.25rem, 1.1rem + 0.7vw, 1.625rem);
+      --head: clamp(2.5rem, 1.2rem + 5vw, 5.5rem);
+      --display: clamp(3.4rem, 10.4vw, 10.5rem);
+
+      --m: clamp(16px, 3vw, 44px);
+      --gap: clamp(14px, 1.8vw, 28px);
+      --section: clamp(96px, 12vw, 180px);
+      --ease: cubic-bezier(.2, .7, .1, 1);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
     body {
-      font: 400 17px/1.6 Manrope, system-ui, sans-serif;
-      color: var(--ink);
-      background: var(--bg);
+      margin: 0;
+      font: 400 var(--body)/1.4 Chivo, system-ui, sans-serif;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      background: var(--black);
       -webkit-font-smoothing: antialiased;
     }
+    h1, h2, h3, p, ul, ol, dl, dd, figure { margin: 0; padding: 0; }
+    ul, ol { list-style: none; }
     a { color: inherit; }
     img, video, iframe { display: block; max-width: 100%; }
+    img { height: auto; }
     :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+    .on-blue :focus-visible { outline-color: var(--white); }
 
-    h1, h2, h3 {
-      font-family: Unbounded, sans-serif;
-      font-weight: 700;
-      line-height: 1.02;
-      letter-spacing: -.02em;
-    }
+    .wrap { width: 100%; max-width: 1640px; margin: 0 auto; padding-inline: var(--m); }
+    .grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gap); }
 
-    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    .label {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .16em;
+    .display, .head {
+      font-weight: 900;
       text-transform: uppercase;
-      color: var(--blue-light);
+      letter-spacing: -0.045em;
+      line-height: .88;
     }
-    .mute { color: var(--mute); }
+    .display { font-size: var(--display); }
+    .head { font-size: var(--head); }
+    .lead { font-size: var(--lead); line-height: 1.3; letter-spacing: -0.015em; }
+    .muted { color: var(--fog); }
 
-    section { padding: 96px 0; }
-    section + section:not(.end) { padding-top: 0; }
-
-    .head { display: grid; gap: 16px; margin-bottom: 52px; }
-    .head h2 { font-size: clamp(34px, 6.5vw, 72px); max-width: 16ch; }
-    .head p { max-width: 52ch; }
-
+    /* buttons: square corners, one fill */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 12px;
       min-height: 56px;
-      padding: 0 26px;
-      border: 1.5px solid transparent;
-      border-radius: 99px;
-      font: 700 16px Manrope, sans-serif;
+      padding: 0 28px;
+      border: 0;
+      border-radius: 0;
+      font: 700 var(--body) Chivo, sans-serif;
+      letter-spacing: -0.01em;
       text-decoration: none;
-      transition: transform .3s var(--ease), background .3s, border-color .3s;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: background-color .2s, color .2s, transform .15s var(--ease);
     }
     .btn:active { transform: scale(.97); }
-    .btn { white-space: nowrap; }
-    @media (min-width: 720px) and (max-width: 1139px) {
-      .plan { grid-template-columns: 1fr 1fr; align-items: start; gap: 24px 40px; }
-      .plan .btn { justify-self: start; }
-      .plan .price { font-size: clamp(40px, 5.6vw, 60px); }
+    .btn-blue { background: var(--blue); color: var(--white); }
+    .btn-blue:hover { background: var(--blue-deep); }
+    .btn-white { background: var(--white); color: var(--black); }
+    .btn-white:hover { background: var(--silver); }
+    .btn-black { background: var(--black); color: var(--white); }
+    .btn-black:hover { background: #2a2d31; }
+    .tlink {
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: .25em;
+      transition: text-decoration-color .2s;
     }
+    .tlink:hover { text-decoration-color: var(--blue); }
 
-    .btn--blue { background: var(--blue); color: #fff; }
-    .btn--blue:hover { background: #3a7fff; }
-    .btn--line { border-color: rgba(255, 255, 255, .35); color: #fff; }
-    .btn--line:hover { border-color: #fff; }
-    .btn--white { background: #fff; color: var(--bg); }
-
-    .hero {
-      position: relative;
-      min-height: 100svh;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      overflow: hidden;
-      isolation: isolate;
-    }
-    .hero__bg {
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 45%;
-      animation: hero-zoom 2.4s var(--ease) both;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: linear-gradient(180deg,
-        rgba(10, 11, 12, .55) 0%,
-        rgba(10, 11, 12, .1) 30%,
-        rgba(10, 11, 12, .55) 62%,
-        var(--bg) 100%);
-    }
-    @keyframes hero-zoom { from { transform: scale(1.08); } }
-
-    .hero__top {
+    /* ---------- header ---------- */
+    .top {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 16px;
+      gap: var(--gap);
+      padding-block: 22px;
       padding-top: calc(22px + env(safe-area-inset-top));
     }
-    .hero__top .label { color: #fff; display: none; }
+    .brand { display: flex; align-items: center; gap: 14px; margin-right: auto; text-decoration: none; }
+    .brand img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
+    .brand span { font-weight: 900; font-size: var(--body); text-transform: uppercase; letter-spacing: -0.02em; }
+    .top nav { display: flex; gap: clamp(16px, 2vw, 32px); }
+    .top nav a { font-weight: 700; text-decoration: none; padding-block: 8px; text-decoration-thickness: 2px; text-underline-offset: .3em; }
+    .top nav a:hover { text-decoration: underline; }
+    .top .btn { min-height: 48px; padding: 0 20px; }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font: 700 18px Unbounded, sans-serif;
-      text-decoration: none;
+    /* ---------- hero ---------- */
+    .hero { padding-bottom: clamp(56px, 7vw, 96px); overflow: hidden; }
+    .hero h1 { margin-top: clamp(24px, 4vw, 56px); }
+    .hero h1 .line { display: block; }
+    .hero-row { margin-top: clamp(32px, 4vw, 56px); align-items: end; row-gap: 40px; }
+    .hero-copy { grid-column: 1 / span 4; padding-bottom: 8px; }
+    .hero-copy .lead { max-width: 24ch; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+    .hero-address { margin-top: 28px; font-size: var(--small); color: var(--fog); }
+    .hero-address a { color: var(--white); }
+    .hero-photo { grid-column: 5 / -1; position: relative; margin-right: calc(var(--m) * -1); }
+    .hero-photo img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: center 62%; }
+
+    /* the hanging tag, the same kind that hangs from the mirror of every car we hand back */
+    .tag {
+      position: absolute;
+      top: -18px;
+      left: clamp(20px, 6%, 80px);
+      width: clamp(150px, 15vw, 214px);
+      transform-origin: 50% -40px;
+      transform: rotate(-7deg);
+      color: var(--black);
+      z-index: 2;
     }
-    .brand img { border-radius: 50%; }
-    .brand b { color: var(--blue-light); }
-
-    .hero__body { padding-bottom: 48px; }
-    .hero h1 { font-size: clamp(44px, 10.5vw, 124px); max-width: 12ch; margin: 14px 0 22px; }
-    .hero h1 span { color: var(--blue-light); }
-    .hero__lead { font-size: 19px; color: #d9dde1; max-width: 38ch; }
-    .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-    .hero__address { margin-top: 22px; font-size: 15px; color: #c1c7cd; }
-    .hero__address a { color: #fff; }
-
-    @media (min-width: 720px) {
-      .hero__top .label { display: block; }
-    }
-
-    .plans { border-top: 1px solid var(--line); }
-    .plan {
-      display: grid;
-      gap: 18px;
-      padding: 40px 0;
-      border-bottom: 1px solid var(--line);
-    }
-    .plan h3 { font-size: clamp(26px, 4vw, 40px); }
-    .plan__time { margin-top: 6px; font-weight: 700; color: var(--blue-light); }
-    .plan ul { list-style: none; display: grid; gap: 8px; }
-    .plan li { position: relative; padding-left: 22px; }
-    .plan li::before {
+    .tag::before {
       content: "";
       position: absolute;
-      left: 0;
-      top: .7em;
-      width: 10px;
-      height: 2px;
-      background: var(--blue);
+      left: 50%;
+      bottom: 100%;
+      width: 2px;
+      height: 40px;
+      background: var(--chrome);
     }
-    .plan__note { margin-top: 12px; }
-
-    .price {
-      font: 800 clamp(44px, 8vw, 84px)/1 Unbounded, sans-serif;
-      letter-spacing: -.03em;
-      white-space: nowrap;
-    }
-    .price small {
-      display: block;
-      margin-bottom: 8px;
-      font: 500 14px Manrope, sans-serif;
-      letter-spacing: 0;
-      color: var(--mute);
-    }
-
-    .badge {
-      display: inline-block;
-      margin-left: 10px;
-      padding: 5px 10px;
-      border-radius: 99px;
-      vertical-align: middle;
-      font: 700 11px Manrope, sans-serif;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      background: var(--blue);
-      color: #fff;
-    }
-
-    @media (min-width: 1140px) {
-      .plan { grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.1fr) auto; align-items: start; gap: 40px; }
-      .plan .price { font-size: clamp(44px, 4.4vw, 68px); }
-      .plan .btn { align-self: center; }
-    }
-
-    .extras { display: grid; gap: 14px; margin-top: 40px; }
-    .extra {
-      display: grid;
-      gap: 4px;
-      padding: 24px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--bg-2);
-      text-decoration: none;
-      transition: border-color .3s, transform .3s var(--ease);
-    }
-    .extra:hover { border-color: var(--blue); }
-    .extra strong { font: 700 20px Unbounded, sans-serif; }
-    .extra__link { margin-top: 10px; font-weight: 700; color: var(--blue-light); }
-    .extra--home { border-color: var(--blue); }
-    .extra__price { font: 800 clamp(28px, 4vw, 40px)/1 Unbounded, sans-serif; letter-spacing: -.02em; margin: 6px 0 2px; }
-    @media (min-width: 820px) { .extra--home { grid-column: 1 / -1; grid-template-columns: 1fr auto; align-items: center; column-gap: 32px; } .extra--home .extra__price { grid-row: 1 / span 3; grid-column: 2; margin: 0; } }
-
-    .fleet {
-      display: grid;
-      gap: 14px;
-      justify-items: start;
-      margin-top: 14px;
-      padding: 36px 28px;
-      border-radius: var(--radius);
-      background: var(--blue);
-    }
-    .fleet h3 { font-size: clamp(24px, 4vw, 36px); max-width: 22ch; }
-    .fleet p { max-width: 54ch; color: #dbe6ff; }
-
-    @media (min-width: 820px) {
-      .extras { grid-template-columns: 1fr 1fr; }
-    }
-    @media (min-width: 900px) {
-      .fleet { grid-template-columns: 1fr auto; align-items: center; padding: 44px; }
-      .fleet .btn { grid-row: span 2; }
-    }
-
-    .gallery {
-      display: grid;
-      gap: 14px;
-      grid-template-columns: repeat(2, 1fr);
-      grid-auto-rows: 220px;
-    }
-    .gallery figure {
+    .tag-card {
       position: relative;
-      overflow: hidden;
-      border-radius: var(--radius);
-      background: var(--bg-2);
+      padding: 44px 18px 18px;
+      background: var(--silver);
+      border-radius: 14px 14px 4px 4px;
     }
-    .gallery img, .gallery video { width: 100%; height: 100%; object-fit: cover; }
-    .gallery__wide { grid-column: 1 / -1; }
-    .gallery__tall { grid-row: span 2; }
-    .gallery figcaption {
+    .tag-card::before {
+      content: "";
       position: absolute;
-      left: 14px;
-      bottom: 14px;
-      padding: 6px 12px;
-      border-radius: 99px;
-      font-size: 13px;
-      font-weight: 700;
-      background: var(--bg);
-      pointer-events: none;
+      top: 14px;
+      left: 50%;
+      width: 16px;
+      height: 16px;
+      margin-left: -8px;
+      border-radius: 50%;
+      background: var(--black);
     }
+    .tag-words { font-weight: 900; text-transform: uppercase; letter-spacing: -0.04em; line-height: .9; font-size: clamp(1.5rem, 2.3vw, 2.25rem); }
+    .tag-words span:nth-child(2) { color: var(--blue); }
+    .tag-note { margin-top: 14px; font-size: var(--small); line-height: 1.3; }
+    .tag-note b { display: block; font-size: var(--body); }
 
-    @media (min-width: 900px) {
-      .gallery { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 270px; }
-      .gallery__wide { grid-column: span 2; }
+    /* ---------- pricing ---------- */
+    .prices { background: var(--silver); color: var(--black); padding-block: var(--section); }
+    .prices-head { align-items: end; row-gap: 20px; }
+    .prices-head h2 { grid-column: 1 / span 8; }
+    .prices-head p { grid-column: 9 / -1; color: var(--steel); }
+    .tickets { margin-top: clamp(48px, 6vw, 88px); align-items: start; row-gap: 24px; }
+    .ticket { position: relative; background: var(--black); color: var(--white); display: flex; flex-direction: column; }
+    .ticket-basic { grid-column: 1 / span 5; margin-top: clamp(0px, 8vw, 120px); }
+    .ticket-full { grid-column: 6 / -1; }
+    .ticket-body { padding: clamp(24px, 2.6vw, 40px); display: grid; gap: 22px; }
+    .ticket h3 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.04em; line-height: .9; font-size: var(--lead); }
+    .ticket-time { margin-top: 8px; color: var(--fog); font-size: var(--small); }
+    .ticket-price { font-weight: 900; letter-spacing: -0.05em; line-height: .85; font-size: var(--head); white-space: nowrap; }
+    .ticket-price small { display: block; margin-bottom: 10px; font-weight: 400; font-size: var(--small); letter-spacing: 0; color: var(--fog); }
+    .ticket-full .ticket-price { font-size: calc(var(--head) * 1.25); }
+    .ticket ul { display: grid; gap: 6px; }
+    .ticket li { padding-left: 1.1em; position: relative; }
+    .ticket li::before { content: ""; position: absolute; left: 0; top: .55em; width: .45em; height: .45em; background: var(--blue); }
+    .ticket-note { color: var(--fog); }
+    /* the tear line: two notches cut out of the ticket */
+    .ticket-stub { position: relative; padding: 0 clamp(24px, 2.6vw, 40px) clamp(24px, 2.6vw, 40px); padding-top: clamp(24px, 2.6vw, 40px); }
+    .ticket-stub::before, .ticket-stub::after {
+      content: "";
+      position: absolute;
+      top: -14px;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--silver);
     }
+    .ticket-stub::before { left: -14px; }
+    .ticket-stub::after { right: -14px; }
+    .ticket-stub .btn { width: 100%; }
+    .ticket-flag { position: absolute; top: 0; right: 0; padding: 8px 14px; background: var(--blue); color: var(--white); font-weight: 700; font-size: var(--small); }
 
-    .process { display: grid; gap: 40px; }
-    .steps { list-style: none; }
-    .step {
+    .home {
+      margin-top: clamp(24px, 3vw, 40px);
+      background: var(--blue);
+      color: var(--white);
+      padding: clamp(24px, 3vw, 44px);
       display: grid;
-      gap: 8px;
-      padding: 32px 0;
-      border-top: 1px solid var(--line);
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 16px clamp(24px, 4vw, 64px);
+      align-items: center;
     }
-    .step__n {
-      grid-row: span 2;
-      font: 800 40px/1 Unbounded, sans-serif;
-      color: var(--blue);
-    }
-    .step h3 { font-size: clamp(22px, 3vw, 28px); }
+    .home-price { font-weight: 900; letter-spacing: -0.05em; line-height: .85; font-size: var(--head); white-space: nowrap; }
+    .home h3 { font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; font-size: var(--lead); line-height: 1; }
+    .home p { margin-top: 8px; max-width: 46ch; }
 
-    @media (min-width: 900px) {
-      .process { grid-template-columns: .9fr 1.1fr; gap: 80px; }
-      .process .head { position: sticky; top: 60px; align-self: start; margin: 0; }
-    }
+    .others { margin-top: clamp(56px, 7vw, 96px); row-gap: 28px; }
+    .others h3 { grid-column: 1 / span 4; font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; font-size: var(--lead); line-height: 1; }
+    .others ul { grid-column: 5 / -1; display: grid; gap: 4px; }
+    .others li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 24px; align-items: baseline; padding: 18px 20px; background: var(--white); }
+    .others li span { color: var(--steel); }
+    .others li b { font-size: var(--lead); letter-spacing: -0.02em; }
+    .others li a { grid-row: span 2; align-self: center; }
 
-    .location { display: grid; gap: 32px; }
-    .location .head { margin-bottom: 28px; }
-    .info { border-top: 1px solid var(--line); }
-    .info div {
-      display: grid;
-      grid-template-columns: 110px 1fr;
-      gap: 16px;
-      padding: 18px 0;
-      border-bottom: 1px solid var(--line);
-    }
-    .info dt { color: var(--mute); }
-    .info dd { font-weight: 700; }
-    .hours { display: grid; grid-template-columns: auto 1fr; gap: 4px 20px; }
-    .hours span:nth-child(odd) { font-weight: 500; color: var(--mute); }
-    .hours .closed { color: var(--mute); font-weight: 500; }
-    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-    .map {
-      width: 100%;
-      height: 380px;
-      border: 0;
-      border-radius: var(--radius);
-      background: var(--bg-2);
-      filter: invert(.92) hue-rotate(180deg) saturate(.6);
-    }
+    /* ---------- gallery ---------- */
+    .work { padding-block: var(--section); }
+    .work-head { align-items: end; row-gap: 16px; }
+    .work-head h2 { grid-column: 1 / span 9; }
+    .work-head p { grid-column: 10 / -1; }
+    .prints { margin-top: clamp(48px, 6vw, 96px); row-gap: clamp(32px, 4vw, 64px); align-items: start; }
+    .print figcaption { margin-top: 12px; font-size: var(--small); color: var(--fog); }
+    .print img, .print video { width: 100%; object-fit: cover; background: var(--panel); }
+    .p1 { grid-column: 1 / span 8; transform: rotate(-1.2deg); }
+    .p1 img { aspect-ratio: 16 / 10; object-position: center 70%; }
+    .p2 { grid-column: 9 / -1; transform: rotate(1.5deg); }
+    .p2 video, .p5 video { aspect-ratio: 4 / 5; }
+    .p3 { grid-column: 1 / span 4; transform: rotate(1deg); }
+    .p3 img, .p4 img { aspect-ratio: 4 / 5; }
+    .p3 img { object-position: center 60%; }
+    .p4 { grid-column: 5 / span 4; margin-top: clamp(24px, 3vw, 48px); transform: rotate(-1.6deg); }
+    .p4 img { object-position: center 55%; }
+    .p5 { grid-column: 9 / -1; transform: rotate(-.8deg); }
 
-    @media (min-width: 900px) {
-      .location { grid-template-columns: 1fr 1.2fr; align-items: center; }
-      .map { height: 500px; }
-    }
+    /* ---------- hours & place ---------- */
+    .place { padding-block: var(--section); }
+    .place .grid { row-gap: 56px; align-items: start; }
+    .place-left { grid-column: 1 / span 6; }
+    .status { margin-top: 28px; font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; line-height: 1; font-size: var(--lead); }
+    .hours { margin-top: 36px; display: grid; gap: 4px; max-width: 34rem; }
+    .hours div { display: flex; justify-content: space-between; gap: 16px; padding: 12px 16px; background: rgba(255, 255, 255, .1); }
+    .hours dt { font-weight: 700; }
+    .hours .closed { opacity: .75; }
+    .hours div.is-today { background: var(--white); color: var(--black); }
+    .hours div.is-today .closed { opacity: 1; }
+    .place-right { grid-column: 8 / -1; }
+    .place-right address { font-style: normal; font-weight: 900; text-transform: uppercase; letter-spacing: -0.04em; line-height: .92; font-size: clamp(1.75rem, 0.8rem + 1.8vw, 2.75rem); }
+    .place-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+    .place-pay { margin-top: 24px; }
+    .map { width: 100%; aspect-ratio: 4 / 3; border: 0; margin-top: 36px; background: var(--blue-deep); }
 
-    .faq { max-width: 860px; border-top: 1px solid var(--line); }
-    .faq details { border-bottom: 1px solid var(--line); }
+    /* ---------- faq ---------- */
+    .faq { background: var(--silver); color: var(--black); padding-top: var(--section); }
+    .faq h2 { margin-bottom: clamp(40px, 5vw, 72px); }
+    .faq details { background: var(--silver); transition: background-color .2s; }
+    .faq details:nth-child(even) { background: var(--white); }
+    .faq details[open] { background: var(--black); color: var(--white); }
     .faq summary {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 24px 0;
-      font-size: 19px;
-      font-weight: 700;
       list-style: none;
       cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding-block: clamp(22px, 2.4vw, 34px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      font-size: var(--lead);
     }
     .faq summary::-webkit-details-marker { display: none; }
     .faq summary::after {
-      content: "";
+      content: "+";
       flex: none;
-      width: 14px;
-      height: 14px;
-      margin-top: 6px;
-      border-right: 2px solid var(--blue-light);
-      border-bottom: 2px solid var(--blue-light);
-      transform: rotate(45deg);
-      transition: transform .3s var(--ease);
+      font-size: 1.4em;
+      line-height: .7;
+      transition: transform .25s var(--ease);
     }
-    .faq details[open] summary::after { transform: rotate(-135deg); }
-    .faq p { max-width: 66ch; padding: 0 40px 26px 0; color: var(--mute); }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq details p { max-width: 58ch; padding-bottom: clamp(24px, 2.6vw, 36px); margin-left: auto; margin-right: 8%; }
+    .faq details[open] p { color: var(--chrome); }
 
-    .end {
-      position: relative;
-      padding: 140px 0;
+    /* ---------- closing ---------- */
+    .end { position: relative; overflow: hidden; padding-top: var(--section); }
+    .end-row { align-items: end; row-gap: 32px; }
+    .end-row h2 { grid-column: 1 / span 8; }
+    .end-act { grid-column: 9 / -1; display: grid; gap: 14px; justify-items: start; }
+    .end-act .btn { width: 100%; }
+    .end-name {
+      display: block;
+      margin-top: clamp(56px, 8vw, 120px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.06em;
+      line-height: .8;
+      font-size: 15.2vw;
+      white-space: nowrap;
+      color: var(--chrome);
       text-align: center;
-      overflow: hidden;
-      isolation: isolate;
     }
-    .end__bg {
-      position: absolute;
-      inset: 0;
-      z-index: -2;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: .35;
-    }
-    .end::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      background: radial-gradient(ellipse at center, rgba(10, 11, 12, .3), var(--bg) 75%);
-    }
-    .end .label { margin-bottom: 18px; }
-    .end h2 { font-size: clamp(38px, 8vw, 96px); max-width: 14ch; margin: 0 auto 32px; }
+    .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-block: 20px calc(20px + env(safe-area-inset-bottom)); font-size: var(--small); color: var(--fog); background: var(--black); position: relative; }
 
-    footer {
-      padding: 28px 0 calc(28px + env(safe-area-inset-bottom));
-      border-top: 1px solid var(--line);
-      font-size: 14px;
-      color: var(--mute);
-    }
-    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
-
-    .js [data-reveal] {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity .9s var(--ease), transform .9s var(--ease);
-      transition-delay: calc(var(--i, 0) * 110ms);
-    }
-    .js [data-reveal].from-top { transform: translateY(-40px); }
-
-    .js [data-reveal="image"] {
-      opacity: 1;
-      transform: none;
-      clip-path: inset(18% 0 0 0 round var(--radius));
-      transition: clip-path 1.2s var(--ease);
-      transition-delay: calc(var(--i, 0) * 110ms);
-    }
-    .js [data-reveal="image"] :is(img, video, iframe) {
-      transform: scale(1.15);
-      transition: transform 1.4s var(--ease);
-    }
-    .js [data-reveal="image"].from-top {
-      transform: none;
-      clip-path: inset(0 0 18% 0 round var(--radius));
+    /* ---------- entrances (JS only, once) ---------- */
+    .js [data-in] { opacity: 0; transform: translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); transition-delay: calc(var(--i, 0) * 80ms); }
+    .js .print[data-in] { transform: translateY(40px) rotate(0deg); }
+    .js [data-in].is-in { opacity: 1; transform: none; }
+    .js .p1.is-in { transform: rotate(-1.2deg); }
+    .js .p2.is-in { transform: rotate(1.5deg); }
+    .js .p3.is-in { transform: rotate(1deg); }
+    .js .p4.is-in { transform: rotate(-1.6deg); }
+    .js .p5.is-in { transform: rotate(-.8deg); }
+    .js .tag { animation: sway 2.2s var(--ease) .4s both; }
+    @keyframes sway {
+      0% { transform: rotate(14deg); }
+      35% { transform: rotate(-12deg); }
+      60% { transform: rotate(-3deg); }
+      80% { transform: rotate(-8.5deg); }
+      100% { transform: rotate(-7deg); }
     }
 
-    .js [data-reveal].is-visible { opacity: 1; transform: none; }
-    .js [data-reveal="image"].is-visible { clip-path: inset(0 round var(--radius)); }
-    .js [data-reveal="image"].is-visible :is(img, video, iframe) { transform: none; }
-
+    /* ---------- responsive ---------- */
+    @media (max-width: 1000px) {
+      .top nav { display: none; }
+      .hero-copy { grid-column: 1 / -1; order: 2; }
+      .hero-photo { grid-column: 1 / -1; margin-inline: calc(var(--m) * -1); }
+      .prices-head h2, .prices-head p, .work-head h2, .work-head p { grid-column: 1 / -1; }
+      .ticket-basic, .ticket-full { grid-column: 1 / -1; margin-top: 0; }
+      .home { grid-template-columns: 1fr; }
+      .others h3, .others ul { grid-column: 1 / -1; }
+      .p1 { grid-column: 1 / -1; }
+      .p2 { grid-column: 1 / span 6; }
+      .p3 { grid-column: 7 / -1; }
+      .p4 { grid-column: 1 / span 6; margin-top: 0; }
+      .p5 { grid-column: 7 / -1; }
+      .place-left, .place-right { grid-column: 1 / -1; }
+      .end-row h2, .end-act { grid-column: 1 / -1; }
+      .end-act .btn { width: auto; }
+      .js .print.is-in, .print { transform: none; }
+    }
+    @media (min-width: 561px) and (max-width: 1000px) {
+      .hero-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 40px; align-items: start; }
+      .hero-copy .lead { max-width: none; }
+      .hero-cta { margin-top: 0; }
+      .hero-address { grid-column: 2; margin-top: 0; }
+    }
+    @media (max-width: 560px) {
+      :root { --display: 10.8vw; }
+      .top { padding-block: 16px; }
+      .brand img { width: 46px; height: 46px; }
+      .brand span { display: none; }
+      .top .btn { padding: 0 16px; }
+      .tag { width: 138px; left: 16px; top: -12px; }
+      .tag-card { padding: 38px 14px 14px; }
+      .tag-words { font-size: 1.375rem; }
+      .tag-note { display: none; }
+      .others li { grid-template-columns: 1fr; }
+      .others li a { grid-row: auto; justify-self: start; }
+      .faq details p { margin-right: 0; }
+    }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .hero__bg { animation: none; }
-      .js [data-reveal],
-      .js [data-reveal] :is(img, video, iframe) {
-        opacity: 1 !important;
-        transform: none !important;
-        clip-path: none !important;
-        transition: none !important;
-      }
+      .js [data-in] { opacity: 1; transition: none; }
+      .js .tag { animation: none; }
     }
   </style>
 </head>
 <body>
 
+<header class="wrap top">
+  <a class="brand" href="#">
+    <img src="img/logo-grande.png" alt="Logo de Fs Car Clean" width="56" height="56">
+    <span>Fs Car Clean</span>
+  </a>
+  <nav aria-label="Secciones">
+    <a href="#precios">Precios</a>
+    <a href="#trabajos">Trabajos</a>
+    <a href="#horarios">Horarios</a>
+  </nav>
+  <a class="btn btn-blue" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado.">Pedir turno</a>
+</header>
+
 <main>
 
-  <section class="hero">
-    <img class="hero__bg" src="img/exterior.jpg" alt="Auto blanco recién lavado frente al lavadero en Rada Tilly" width="1100" height="1467" fetchpriority="high">
+  <section class="wrap hero" aria-labelledby="h1">
+    <h1 class="display" id="h1" data-in><span class="line">Lavado a mano</span><span class="line">en Rada Tilly</span></h1>
 
-    <div class="wrap hero__top">
-      <a class="brand" href="#" data-reveal>
-        <img src="img/logo.png" alt="" width="44" height="44">
-        <span>Fs <b>Car Clean</b></span>
-      </a>
-    </div>
-
-    <div class="wrap hero__body">
-      <h1 data-reveal>Lavado de autos en Rada Tilly</h1>
-      <p class="hero__lead" data-reveal>Básico desde $20.000, detallado desde $35.000. Lo lavamos a mano y te decimos cuánto tarda antes de empezar.</p>
-      <div class="hero__cta" data-reveal>
-        <a class="btn btn--blue" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado.">Pedir turno por WhatsApp</a>
-        <a class="btn btn--line btn--plain" href="#servicios">Ver precios</a>
+    <div class="grid hero-row">
+      <div class="hero-copy" data-in style="--i:1">
+        <p class="lead">Básico desde $20.000 y detallado desde $35.000. Antes de empezar te decimos cuánto tarda.</p>
+        <div class="hero-cta">
+          <a class="btn btn-blue" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado.">Pedir turno por WhatsApp</a>
+          <a class="btn btn-white" href="#precios">Ver precios</a>
+        </div>
+        <p class="hero-address">Tomas Turkovic 1544, Rada Tilly. <a class="tlink" href="https://www.google.com/maps/dir/?api=1&destination=-45.923972,-67.574861">Cómo llegar</a></p>
       </div>
-      <p class="hero__address" data-reveal>
-        Tomas Turkovic 1544, Rada Tilly. <a href="https://www.google.com/maps/dir/?api=1&destination=-45.923972,-67.574861">Cómo llegar</a>
-      </p>
+
+      <div class="hero-photo">
+        <img src="img/exterior.jpg" alt="Toyota Corolla blanco recién lavado frente al lavadero en Rada Tilly" width="1100" height="1467" fetchpriority="high">
+        <div class="tag" aria-hidden="true">
+          <div class="tag-card">
+            <p class="tag-words"><span>Limpieza</span><br><span>Pulido</span><br><span>Brillo</span></p>
+            <p class="tag-note"><b>Fs Car Clean</b>Tu auto vuelve con esta etiqueta colgada del espejo.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section id="servicios">
+  <section class="prices" id="precios" aria-labelledby="precios-h">
     <div class="wrap">
-      <div class="head">
-        <h2 data-reveal>Qué hacemos y cuánto cuesta</h2>
-        <p class="mute" data-reveal>Son precios desde. Si tu vehículo es grande o está muy sucio, te avisamos el valor final antes de empezar.</p>
+      <div class="grid prices-head">
+        <h2 class="head" id="precios-h" data-in>Qué hacemos y cuánto sale</h2>
+        <p class="lead" data-in style="--i:1">Son precios desde. Si tu vehículo es grande o está muy sucio, te avisamos el valor final antes de empezar.</p>
       </div>
 
-      <div class="plans">
-        <article class="plan" data-reveal>
-          <div>
-            <h3>Lavado básico</h3>
-            <p class="plan__time">30 a 40 minutos</p>
-          </div>
-          <p class="price"><small>Desde</small>$<span data-count="20000">20.000</span></p>
-          <div>
+      <div class="grid tickets">
+        <article class="ticket ticket-basic" data-in>
+          <div class="ticket-body">
+            <div>
+              <h3>Lavado básico</h3>
+            </div>
+            <p class="ticket-price"><small>Desde</small>$20.000</p>
             <ul>
               <li>Lavado exterior completo</li>
               <li>Limpieza de pasarruedas y llantas</li>
               <li>Secado a mano</li>
             </ul>
-            <p class="plan__note mute">Para el lavado de todas las semanas.</p>
+            <p class="ticket-note">Listo en 30 a 40 minutos. Para el lavado de todas las semanas.</p>
           </div>
-          <a class="btn btn--line" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado%20b%C3%A1sico.">Pedir turno</a>
+          <div class="ticket-stub">
+            <a class="btn btn-white" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado%20b%C3%A1sico.">Pedir turno para el básico</a>
+          </div>
         </article>
 
-        <article class="plan" data-reveal>
-          <div>
-            <h3>Detallado premium</h3>
-            <p class="plan__time">90 a 120 minutos</p>
-          </div>
-          <p class="price"><small>Desde</small>$<span data-count="35000">35.000</span></p>
-          <div>
+        <article class="ticket ticket-full" data-in style="--i:1">
+          <div class="ticket-body">
+            <div>
+              <h3>Detallado premium</h3>
+            </div>
+            <p class="ticket-price"><small>Desde</small>$35.000</p>
             <ul>
               <li>Todo lo del lavado básico</li>
               <li>Limpieza de interior completa</li>
               <li>Protección de plásticos y cueros</li>
             </ul>
-            <p class="plan__note mute">El más completo: queda impecable por dentro y por fuera. Conviene dejarlo en el lavadero.</p>
+            <p class="ticket-note">El más completo. Lleva de 90 a 120 minutos, así que conviene dejarlo en el lavadero. Queda impecable por dentro y por fuera.</p>
           </div>
-          <a class="btn btn--blue" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado%20detallado.">Pedir turno</a>
+          <div class="ticket-stub">
+            <a class="btn btn-blue" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado%20detallado.">Pedir turno para el detallado</a>
+          </div>
         </article>
       </div>
 
-      <div class="extras">
-        <a class="extra extra--home" data-reveal href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20un%20lavado%20a%20domicilio.">
-          <strong>Lavado a domicilio</strong>
-          <span class="mute">Si no podés traerlo, vamos nosotros. Se suma al precio del servicio que elijas.</span>
-          <span class="extra__price">+$10.000</span>
-          <span class="extra__link">Pedir a domicilio</span>
-        </a>
-        <a class="extra" data-reveal href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20pulido%20de%20%C3%B3pticas.">
-          <strong>Pulido de ópticas</strong>
-          <span class="mute">Faros opacos o amarillos que ya no iluminan bien.</span>
-          <span class="extra__link">Consultar precio</span>
-        </a>
-        <a class="extra" data-reveal href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20consultar%20el%20precio%20de%20limpieza%20de%20tapizados.">
-          <strong>Limpieza de tapizados</strong>
-          <span class="mute">Manchas, olores y tierra en los asientos.</span>
-          <span class="extra__link">Consultar precio</span>
-        </a>
-      </div>
-
-      <div class="fleet" data-reveal>
-        <h3>¿Tenés una empresa de traslados o varias unidades?</h3>
-        <p>Escribinos con la cantidad de vehículos y armamos un plan de lavado con turnos para tu flota.</p>
-        <a class="btn btn--white" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20para%20lavar%20varias%20unidades.">Pedir cotización</a>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="head">
-        <h2 data-reveal>Recién entregados</h2>
-        <p class="mute" data-reveal>Autos y camionetas de clientes de Rada Tilly, recién terminados.</p>
-      </div>
-
-      <div class="gallery">
-        <figure class="gallery__wide" data-reveal="image">
-          <img src="img/cliente-exterior.jpeg" alt="Toyota Hilux negra mate con detalles rojos, recién lavada" style="object-position: center 70%" loading="lazy">
-          <figcaption>Hilux por fuera</figcaption>
-        </figure>
-        <figure class="gallery__tall" data-reveal="image">
-          <video src="video/trabajo1.mp4" poster="img/poster1.jpg" controls muted playsinline preload="metadata"></video>
-        </figure>
-        <figure class="gallery__tall" data-reveal="image">
-          <video src="video/trabajo2.mp4" poster="img/poster2.jpg" controls muted playsinline preload="metadata"></video>
-        </figure>
-        <figure data-reveal="image">
-          <img src="img/cliente-interior.jpeg" alt="Interior de la Toyota Hilux con asientos de cuero negro limpios" style="object-position: center 60%" loading="lazy">
-          <figcaption>Hilux por dentro</figcaption>
-        </figure>
-        <figure data-reveal="image">
-          <img src="img/interior.jpg" alt="Interior de un Corolla con asientos de cuero y tablero limpios" style="object-position: center 55%" loading="lazy">
-          <figcaption>Corolla por dentro</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="wrap process">
-      <div class="head">
-        <h2 data-reveal>Cómo cuidamos tu auto</h2>
-        <p class="mute" data-reveal>Sin apuro y sin máquinas que rayen. Todo se hace a mano.</p>
-      </div>
-
-      <ol class="steps">
-        <li class="step" data-reveal>
-          <h3>Te pasamos tiempo y precio</h3>
-          <p class="mute">Miramos el vehículo y antes de empezar te decimos cuánto tarda y cuánto sale. Si es grande o está muy sucio, también.</p>
-        </li>
-        <li class="step" data-reveal>
-          <h3>Lavado a mano</h3>
-          <p class="mute">Carrocería, llantas y pasarruedas, una por una, con Toxic Shine y Vonixx. Donde se junta la tierra de Rada Tilly le dedicamos más tiempo.</p>
-        </li>
-        <li class="step" data-reveal>
-          <h3>Secado y revisión</h3>
-          <p class="mute">Secamos pieza por pieza para que no queden marcas de agua. Antes de entregarlo, lo revisamos con vos.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <section id="donde">
-    <div class="wrap location">
-      <div>
-        <div class="head">
-          <h2 data-reveal>Dónde estamos</h2>
+      <div class="home on-blue" data-in>
+        <p class="home-price">+$10.000</p>
+        <div>
+          <h3>Lavado a domicilio</h3>
+          <p>Si no podés traerlo, vamos nosotros. Se suma al precio del servicio que elijas.</p>
         </div>
+        <a class="btn btn-white" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20un%20lavado%20a%20domicilio.">Pedir a domicilio</a>
+      </div>
 
-        <dl class="info" data-reveal>
-          <div><dt>Dirección</dt><dd>Tomas Turkovic 1544, Rada Tilly</dd></div>
-          <div><dt>Horario</dt><dd class="hours">
-            <span>Lunes</span><span>8 a 11 hs</span>
-            <span>Martes</span><span class="closed">Cerrado</span>
-            <span>Miércoles</span><span class="closed">Cerrado</span>
-            <span>Jueves</span><span>8 a 11 hs</span>
-            <span>Viernes</span><span>8 a 11 hs</span>
-            <span>Sábado</span><span>8 a 19 hs</span>
-            <span>Domingo</span><span>11 a 18 hs</span>
-          </dd></div>
-          <div><dt>WhatsApp</dt><dd><a href="tel:+542975012375">297 501-2375</a></dd></div>
-          <div><dt>Pagos</dt><dd>Transferencia bancaria y efectivo</dd></div>
+      <div class="grid others">
+        <h3 data-in>También hacemos</h3>
+        <ul>
+          <li data-in style="--i:1"><b>Pulido de ópticas</b><a class="tlink" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20consultar%20el%20precio%20del%20pulido%20de%20%C3%B3pticas.">Consultar precio</a><span>Faros opacos o amarillos que ya no iluminan bien.</span></li>
+          <li data-in style="--i:2"><b>Limpieza de tapizados</b><a class="tlink" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20consultar%20el%20precio%20de%20limpieza%20de%20tapizados.">Consultar precio</a><span>Manchas, olores y tierra en los asientos.</span></li>
+          <li data-in style="--i:3"><b>Flotas y empresas</b><a class="tlink" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20una%20cotizaci%C3%B3n%20para%20lavar%20varias%20unidades.">Pedir cotización</a><span>Decinos cuántos vehículos son y armamos turnos fijos.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap work" id="trabajos" aria-labelledby="trabajos-h">
+    <div class="grid work-head">
+      <h2 class="head" id="trabajos-h" data-in>Recién entregados</h2>
+      <p class="muted" data-in style="--i:1">Autos y camionetas de clientes de Rada Tilly, el día que los vinieron a buscar.</p>
+    </div>
+    <div class="grid prints">
+      <figure class="print p1" data-in>
+        <img src="img/cliente-exterior.jpeg" alt="Toyota Hilux negra mate con detalles rojos, recién lavada" width="1600" height="1000" loading="lazy">
+        <figcaption>Hilux, por fuera</figcaption>
+      </figure>
+      <figure class="print p2" data-in style="--i:1">
+        <video src="video/trabajo1.mp4" poster="img/poster1.jpg" controls muted playsinline preload="metadata"></video>
+        <figcaption>Interior, durante el lavado</figcaption>
+      </figure>
+      <figure class="print p3" data-in>
+        <img src="img/cliente-interior.jpeg" alt="Interior de la Toyota Hilux con asientos de cuero negro limpios" width="1000" height="1250" loading="lazy">
+        <figcaption>Hilux, por dentro</figcaption>
+      </figure>
+      <figure class="print p4" data-in style="--i:1">
+        <img src="img/interior.jpg" alt="Interior de un Corolla con asientos de cuero y tablero limpios" width="1000" height="1250" loading="lazy">
+        <figcaption>Corolla, por dentro</figcaption>
+      </figure>
+      <figure class="print p5" data-in style="--i:2">
+        <video src="video/trabajo2.mp4" poster="img/poster2.jpg" controls muted playsinline preload="metadata"></video>
+        <figcaption>Camioneta blanca, terminada</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="place on-blue" id="horarios" aria-labelledby="horarios-h" style="background: var(--blue)">
+    <div class="wrap grid">
+      <div class="place-left">
+        <h2 class="head" id="horarios-h" data-in>Cuándo abrimos</h2>
+        <p class="status" id="status" aria-live="polite">Turnos por WhatsApp al 297 501-2375</p>
+        <dl class="hours" id="hours">
+          <div data-day="1"><dt>Lunes</dt><dd>8 a 11 hs</dd></div>
+          <div data-day="2"><dt>Martes</dt><dd class="closed">Cerrado</dd></div>
+          <div data-day="3"><dt>Miércoles</dt><dd class="closed">Cerrado</dd></div>
+          <div data-day="4"><dt>Jueves</dt><dd>8 a 11 hs</dd></div>
+          <div data-day="5"><dt>Viernes</dt><dd>8 a 11 hs</dd></div>
+          <div data-day="6"><dt>Sábado</dt><dd>8 a 19 hs</dd></div>
+          <div data-day="0"><dt>Domingo</dt><dd>11 a 18 hs</dd></div>
         </dl>
-
-        <div class="actions" data-reveal>
-          <a class="btn btn--blue" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado.">Pedir turno</a>
-          <a class="btn btn--line btn--plain" href="https://www.google.com/maps/dir/?api=1&destination=-45.923972,-67.574861">Cómo llegar</a>
-          <a class="btn btn--line btn--plain" href="tel:+542975012375">Llamar</a>
-          <a class="btn btn--line btn--plain" href="https://www.google.com/maps/place/Fs+Car+Clean/@-45.923292,-67.5722065,17z/data=!4m14!1m7!3m6!1s0xbde5adf69e41d36d:0xe82d05f3a833d6e9!2sFs+Car+Clean!8m2!3d-45.9232584!4d-67.5685158!16s%2Fg%2F11zky308c2?entry=ttu">Reseñas en Google</a>
+      </div>
+      <div class="place-right" data-in style="--i:1">
+        <address>Tomas Turkovic 1544<br>Rada Tilly</address>
+        <div class="place-actions">
+          <a class="btn btn-white" href="https://www.google.com/maps/dir/?api=1&destination=-45.923972,-67.574861">Cómo llegar</a>
+          <a class="btn btn-black" href="tel:+542975012375">Llamar</a>
+          <a class="btn btn-black" href="https://www.google.com/maps/place/Fs+Car+Clean/@-45.923292,-67.5722065,17z/data=!4m14!1m7!3m6!1s0xbde5adf69e41d36d:0xe82d05f3a833d6e9!2sFs+Car+Clean!8m2!3d-45.9232584!4d-67.5685158!16s%2Fg%2F11zky308c2?entry=ttu">Reseñas en Google</a>
         </div>
-      </div>
-
-      <div data-reveal="image">
-        <iframe class="map" title="Mapa de Fs Car Clean en Rada Tilly" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=-45.923972,-67.574861&hl=es&z=17&output=embed"></iframe>
+        <p class="place-pay">Pagás con transferencia o en efectivo.</p>
+        <iframe class="map" title="Mapa de Fs Car Clean en Rada Tilly" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=-45.923972,-67.574861&hl=es&z=16&output=embed"></iframe>
       </div>
     </div>
   </section>
 
-  <section>
+  <section class="faq" aria-labelledby="faq-h">
     <div class="wrap">
-      <div class="head">
-        <h2 data-reveal>Preguntas frecuentes</h2>
-      </div>
-
-      <div class="faq">
-        <details data-reveal>
-          <summary>¿Cuánto tarda?</summary>
-          <p>El lavado básico lleva entre 30 y 40 minutos. El detallado, entre 90 y 120 minutos. Si el vehículo es grande o está muy sucio, te avisamos antes de empezar.</p>
-        </details>
-        <details data-reveal>
-          <summary>¿Cuánto cuesta?</summary>
-          <p>El lavado básico sale desde $20.000 y el detallado desde $35.000. El pulido de ópticas y la limpieza de tapizados dependen del estado de cada vehículo: mandanos una foto por WhatsApp y te pasamos el precio.</p>
-        </details>
-        <details data-reveal>
-          <summary>¿Cómo se pide un turno?</summary>
-          <p>Por WhatsApp al 297 501-2375. Decinos qué servicio querés y qué vehículo tenés, y te confirmamos el horario.</p>
-        </details>
-        <details data-reveal>
-          <summary>¿Cómo cuidan la pintura de mi auto?</summary>
-          <p>Lavamos a mano, con productos Toxic Shine y Vonixx, y secamos a mano para evitar marcas.</p>
-        </details>
-        <details data-reveal>
-          <summary>¿Dónde están y cuál es el horario?</summary>
-          <p>Tomas Turkovic 1544, Rada Tilly. Lunes, jueves y viernes de 8 a 11 hs, sábados de 8 a 19 hs y domingos de 11 a 18 hs. Martes y miércoles está cerrado.</p>
-        </details>
-        <details data-reveal>
-          <summary>¿Qué formas de pago aceptan?</summary>
-          <p>Transferencia bancaria y efectivo.</p>
-        </details>
-        <details data-reveal>
-          <summary>¿Van a domicilio?</summary>
-          <p>Sí. El lavado a domicilio tiene un extra de $10.000 sobre el precio del servicio. Pedilo por WhatsApp con tu dirección y te confirmamos el horario.</p>
-        </details>
-        <details data-reveal>
-          <summary>¿Trabajan con empresas o flotas?</summary>
-          <p>Sí. Escribinos por WhatsApp con la cantidad de unidades y te armamos una cotización.</p>
-        </details>
-      </div>
+      <h2 class="head" id="faq-h" data-in>Lo que más nos preguntan</h2>
+    </div>
+    <div>
+      <details><summary class="wrap">¿Van a domicilio?</summary><p class="wrap">Sí. El lavado a domicilio tiene un extra de $10.000 sobre el precio del servicio. Pedilo por WhatsApp con tu dirección y te confirmamos el horario.</p></details>
+      <details><summary class="wrap">¿Cuánto tarda?</summary><p class="wrap">El básico lleva entre 30 y 40 minutos. El detallado, entre 90 y 120. Si el vehículo es grande o está muy sucio, te avisamos antes de empezar.</p></details>
+      <details><summary class="wrap">¿Cuánto salen ópticas y tapizados?</summary><p class="wrap">Depende de cómo estén. Mandanos una foto por WhatsApp y te pasamos el precio.</p></details>
+      <details><summary class="wrap">¿Cómo cuidan la pintura?</summary><p class="wrap">Lavamos y secamos a mano, pieza por pieza, con productos Toxic Shine y Vonixx. Antes de entregarlo lo revisamos con vos.</p></details>
+      <details><summary class="wrap">¿Trabajan con empresas?</summary><p class="wrap">Sí. Escribinos con la cantidad de unidades y te armamos una cotización con turnos fijos para la flota.</p></details>
     </div>
   </section>
 
-  <section class="end">
-    <img class="end__bg" src="img/interior.jpg" alt="" loading="lazy">
-    <div class="wrap">
-      <h2 data-reveal>¿Cuándo querés traer el auto?</h2>
-      <div data-reveal>
-        <a class="btn btn--blue" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado.">Pedir turno por WhatsApp</a>
+  <section class="end" aria-labelledby="end-h">
+    <div class="wrap grid end-row">
+      <h2 class="head" id="end-h" data-in>¿Cuándo lo traés?</h2>
+      <div class="end-act" data-in style="--i:1">
+        <a class="tlink" href="tel:+542975012375">297 501-2375</a>
+        <a class="btn btn-blue" href="https://wa.me/5492975012375?text=Hola%2C%20quiero%20pedir%20turno%20para%20un%20lavado.">Pedir turno por WhatsApp</a>
       </div>
     </div>
+    <p class="end-name" aria-hidden="true">Fs Car Clean</p>
   </section>
 
 </main>
 
-<footer>
-  <div class="wrap">
-    <span>© 2026 Fs Car Clean</span>
-    <span>Tomas Turkovic 1544, Rada Tilly</span>
-  </div>
+<footer class="wrap foot">
+  <span>© 2026 Fs Car Clean</span>
+  <span>Tomas Turkovic 1544, Rada Tilly</span>
 </footer>
 
 <script>
   (() => {
-    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const items = document.querySelectorAll("[data-reveal]");
+    const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const groups = new Map();
-    items.forEach((el) => {
-      const siblings = groups.get(el.parentElement) || [];
-      el.style.setProperty("--i", siblings.length);
-      siblings.push(el);
-      groups.set(el.parentElement, siblings);
-    });
-
-    const countUp = (el) => {
-      const target = Number(el.dataset.count);
-      const format = (n) => n.toLocaleString("es-AR");
-      if (reduceMotion) return;
-
-      const duration = 1400;
-      const start = performance.now();
-
-      const tick = (now) => {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        el.textContent = format(Math.round((target * eased) / 100) * 100);
-        if (progress < 1) requestAnimationFrame(tick);
-      };
-      requestAnimationFrame(tick);
-    };
-
-    const show = (el) => {
-      if (el.classList.contains("is-visible")) return;
-      el.classList.add("is-visible");
-    };
-
-    if (!("IntersectionObserver" in window)) {
-      items.forEach(show);
-      return;
+    /* entrances, once */
+    const items = document.querySelectorAll("[data-in]");
+    if (!("IntersectionObserver" in window) || reduce) {
+      items.forEach((el) => el.classList.add("is-in"));
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); }
+        });
+      }, { rootMargin: "0px 0px -8% 0px" });
+      items.forEach((el) => io.observe(el));
     }
 
-    const hide = (el, aboveViewport) => {
-      el.classList.remove("is-visible");
-      el.classList.toggle("from-top", aboveViewport);
-    };
+    /* open now? Rada Tilly time */
+    const HOURS = { 0: [11, 18], 1: [8, 11], 2: null, 3: null, 4: [8, 11], 5: [8, 11], 6: [8, 19] };
+    const NAMES = ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"];
+    const status = document.getElementById("status");
+    try {
+      const parts = new Intl.DateTimeFormat("en-US", { timeZone: "America/Argentina/Buenos_Aires", weekday: "short", hour: "numeric", minute: "numeric", hour12: false }).formatToParts(new Date());
+      const get = (t) => parts.find((p) => p.type === t).value;
+      const day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].indexOf(get("weekday"));
+      const now = (parseInt(get("hour"), 10) % 24) + parseInt(get("minute"), 10) / 60;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          show(entry.target);
-          observer.unobserve(entry.target);
+      const row = document.querySelector('#hours [data-day="' + day + '"]');
+      if (row) row.classList.add("is-today");
+
+      const today = HOURS[day];
+      let text;
+      if (today && now >= today[0] && now < today[1]) {
+        text = "Ahora estamos abiertos, hasta las " + today[1] + " hs";
+      } else if (today && now < today[0]) {
+        text = "Hoy abrimos a las " + today[0] + " hs";
+      } else {
+        for (let i = 1; i <= 7; i++) {
+          const d = (day + i) % 7;
+          if (HOURS[d]) {
+            text = "Ahora cerrado. Abrimos " + (i === 1 ? "mañana" : "el " + NAMES[d]) + " a las " + HOURS[d][0] + " hs";
+            break;
+          }
         }
-      });
-    }, { threshold: 0.15, rootMargin: "0px 0px -8% 0px" });
-
-    items.forEach((el) => observer.observe(el));
+      }
+      if (text) status.textContent = text;
+    } catch (e) { /* keeps the default line */ }
   })();
 </script>
-
-<!-- Estadisticas de visitas (Cloudflare Web Analytics). Reemplazar TU_TOKEN_ACA por el token del panel de Cloudflare -->
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "TU_TOKEN_ACA"}'></script>
 </body>
 </html>
